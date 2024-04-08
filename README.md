@@ -21,7 +21,7 @@ O objetivo deste projeto é simular o funcionamento de uma academia, permitindo 
   [LinkedIn](link para o perfil do LinkedIn)
 
 - **Nicolle Pinheiro Mello**  
-  [LinkedIn](link para o perfil do LinkedIn)
+  [LinkedIn] https://www.linkedin.com/in/nimellodev/
 
 - **Victor Gaspar Siqueira**  
   [LinkedIn](link para o perfil do LinkedIn)
