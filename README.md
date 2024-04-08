@@ -24,4 +24,4 @@ O objetivo deste projeto é simular o funcionamento de uma academia, permitindo 
   [LinkedIn] https://www.linkedin.com/in/nimellodev/
 
 - **Victor Gaspar Siqueira**  
-  [LinkedIn]https://www.linkedin.com/in/victor-g-siqueira/
+  [LinkedIn] https://www.linkedin.com/in/victor-g-siqueira/
