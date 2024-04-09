@@ -9,19 +9,19 @@ O objetivo deste projeto é simular o funcionamento de uma academia, permitindo 
 ## Integrantes do Grupo
 
 - **Alexandre De Oliveira Silveira**  
-  [LinkedIn](link para o perfil do LinkedIn)
+  LinkedIn - (link para o perfil do LinkedIn)
 
 - **Ana Yukari Futigami Pereira**  
-  [LinkedIn](link para o perfil do LinkedIn)
+  LinkedIn - https://www.linkedin.com/in/anayukari/
 
 - **Kayque Lucas Silva Neves**  
-  [LinkedIn](link para o perfil do LinkedIn)
+  LinkedIn - (link para o perfil do LinkedIn)
 
 - **Maria Eduarda Goes Pelaggi**  
-  [LinkedIn](link para o perfil do LinkedIn)
+  LinkedIn - (link para o perfil do LinkedIn)
 
 - **Nicolle Pinheiro Mello**  
-  [LinkedIn] https://www.linkedin.com/in/nimellodev/
+  LinkedIn - https://www.linkedin.com/in/nimellodev/
 
 - **Victor Gaspar Siqueira**  
-  [LinkedIn](link para o perfil do LinkedIn)
+  LinkedIn - https://www.linkedin.com/in/victor-g-siqueira/

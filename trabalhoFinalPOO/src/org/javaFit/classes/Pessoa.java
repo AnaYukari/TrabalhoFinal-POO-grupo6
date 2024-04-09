@@ -1,17 +1,20 @@
 package org.javaFit.classes;
 
-import javax.xml.crypto.Data;
+import java.time.LocalDate;
 
 //classe mãe de Aluno, Funcionario e PersonalTrainer
 public class Pessoa {
     private String nome;
     private String cpf;
-    private Data dataDeNascimento;
+    private LocalDate dataDeNascimento;
     private String contato;
     private String senha;
 
-    public Pessoa(String nome, String senha) {
+    public Pessoa(String nome, String cpf, LocalDate dataDeNascimento, String contato, String senha) {
         this.nome = nome;
+        this.cpf = cpf;
+        this.dataDeNascimento = dataDeNascimento;
+        this.contato = contato;
         this.senha = senha;
     }
 
@@ -23,7 +26,7 @@ public class Pessoa {
         return cpf;
     }
 
-    public Data getDataDeNascimento() {
+    public LocalDate getDataDeNascimento() {
         return dataDeNascimento;
     }
 
@@ -42,5 +45,4 @@ public class Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
 }
