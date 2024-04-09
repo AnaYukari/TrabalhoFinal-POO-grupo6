@@ -1,5 +1,5 @@
 package org.javaFit.main;
-
+//feito por Victor
 import org.javaFit.classes.Plano;
 
 public class TestaPlano {
@@ -38,6 +38,9 @@ public class TestaPlano {
 	
 		//testes de print
 		planoBasico.setDuracaoPlano(7);
+		planoBasico.aplicarDesconto();
 		System.out.println(planoBasico);
+		
+
 	}
 }

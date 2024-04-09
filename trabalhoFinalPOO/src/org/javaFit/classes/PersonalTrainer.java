@@ -1,4 +1,7 @@
 package org.javaFit.classes;
+
+import java.time.LocalDate;
+
 //subclasse de Pessoa
 public class PersonalTrainer extends Pessoa {
 
@@ -6,9 +9,13 @@ public class PersonalTrainer extends Pessoa {
     private String CREF;
     private String horarioAtendimento;
 
-        public PersonalTrainer(String especialidade, String cref, String horarioAtendimento) {
+
+
+		public PersonalTrainer(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
+			String especialidade, String CREF, String horarioAtendimento) {
+		super(nome, cpf, dataNascimento, contato, senha);
 		this.especialidade = especialidade;
-		CREF = cref;
+		this.CREF = CREF;
 		this.horarioAtendimento = horarioAtendimento;
 	}
 
@@ -24,8 +31,8 @@ public class PersonalTrainer extends Pessoa {
 			return CREF;
 		}
 
-		public void setCREF(String cREF) {
-			CREF = cREF;
+		public void setCREF(String CREF) {
+			this.CREF = CREF;
 		}
 
 		public String getHorarioAtendimento() {
