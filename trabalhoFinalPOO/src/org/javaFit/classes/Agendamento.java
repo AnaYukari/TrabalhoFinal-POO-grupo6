@@ -1,17 +1,17 @@
 package org.javaFit.classes;
+//classe que vai ligar com Aluno e PersonalTrainer
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-//classe que vai ligar com Aluno e PersonalTrainer
+
 public class Agendamento {
 	private LocalDate dataAgendamento;
 	private LocalTime horaAgendamento;
 	private Aluno aluno;
 	private PersonalTrainer personalTrainer;
 	
-	public Agendamento(Aluno aluno, PersonalTrainer personalTrainer, LocalDate dataAgendamento,
-			LocalTime horaAgendamento) {
+	public Agendamento(Aluno aluno, PersonalTrainer personalTrainer, LocalDate dataAgendamento,LocalTime horaAgendamento) {
 		this.aluno = aluno;
 		this.personalTrainer = personalTrainer;
 		this.dataAgendamento = dataAgendamento;
@@ -48,8 +48,13 @@ public class Agendamento {
 
 	@Override
 	public String toString() {
-		return "Agendamento [aluno=" + aluno + ", personalTrainer=" + personalTrainer + ", dataAgendamento="
-				+ dataAgendamento + ", horaAgendamento=" + horaAgendamento + "]";
+		return String.format("""
+					Nome do aluno: %s
+					Nome personal trainer: %s
+					Data do agendamento: %s
+					Hora do agendamento: %s
+					""", aluno, personalTrainer, dataAgendamento, horaAgendamento);
+				
 	}
 	
 	

@@ -3,46 +3,72 @@ package org.javaFit.classes;
 import java.time.LocalDate;
 
 //classe mãe de Aluno, Funcionario e PersonalTrainer
-public class Pessoa {
+public abstract class Pessoa {
+
     private String nome;
     private String cpf;
-    private LocalDate dataDeNascimento;
+    private LocalDate dataNascimento;
     private String contato;
     private String senha;
+	
+    public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.contato = contato;
+		this.senha = senha;
+	}
 
-    public Pessoa(String nome, String cpf, LocalDate dataDeNascimento, String contato, String senha) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.dataDeNascimento = dataDeNascimento;
-        this.contato = contato;
-        this.senha = senha;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public LocalDate getDataDeNascimento() {
-        return dataDeNascimento;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public String getContato() {
-        return contato;
-    }
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
 
-    public void setContato(String contato) {
-        this.contato = contato;
-    }
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getContato() {
+		return contato;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("""
+				Nome: %s
+				CPF: %s
+				Data de Nascimento: %s
+				Contato: %s
+				Senha: %s
+				""", nome, cpf, dataNascimento, contato, senha);
+					
+	}
+    
 }
