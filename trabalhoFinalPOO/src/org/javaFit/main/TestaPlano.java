@@ -1,5 +1,9 @@
 package org.javaFit.main;
 
+import java.time.LocalDate;
+
+import org.javaFit.classes.Aluno;
+import org.javaFit.classes.Pessoa;
 //feito por Victor
 import org.javaFit.classes.Plano;
 
@@ -43,7 +47,13 @@ public class TestaPlano {
 		// testes de print
 		planoBasico.setDuracaoPlano(7);
 		planoBasico.aplicarDesconto();
-		System.out.println(planoBasico);
+		//System.out.println(planoBasico);
 
+		
+		Pessoa pessoa1 = new Aluno("Victor", "12345678911", LocalDate.of(1992, 05, 15), "22999124405", "123456", planoBasico, LocalDate.of(2024, 04, 11));
+		
+		System.out.println(pessoa1);
 	}
+	
+
 }

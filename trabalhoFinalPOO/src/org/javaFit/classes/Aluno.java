@@ -10,11 +10,10 @@ public class Aluno extends Pessoa {
 	    private List<Avaliacao> avaliacoes;
 		
 	    public Aluno(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
-				Plano planoContratado, LocalDate dataMatricula, List<Avaliacao> avaliacoes) {
+				Plano planoContratado, LocalDate dataMatricula) {
 			super(nome, cpf, dataNascimento, contato, senha);
 			this.planoContratado = planoContratado;
 			this.dataMatricula = dataMatricula;
-			this.avaliacoes = avaliacoes;
 		}
 
 		public Plano getPlanoContratado() {
@@ -48,7 +47,7 @@ public class Aluno extends Pessoa {
 
 		@Override
 		public String toString() {
-			return String.format("""
+			return super.toString() + String.format("""
 					Plano contratado: %s
 					Data Matricula: %s
 					Avaliações: %s
