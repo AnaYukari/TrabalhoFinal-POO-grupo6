@@ -44,6 +44,11 @@ public class Aluno extends Pessoa {
 			 avaliacoes.add(avaliacao);
 				
 		}
+		
+		//métodos
+		public void menuAluno() {
+			System.out.printf("1-Editar\n2-Sair");
+		}
 
 		@Override
 		public String toString() {
