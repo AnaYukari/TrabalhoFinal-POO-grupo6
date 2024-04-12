@@ -7,6 +7,7 @@ import java.util.List;
 public class Aluno extends Pessoa {
 	 	private Plano planoContratado;
 	    private LocalDate dataMatricula;
+	    private AvaliacaoFisica avaliacaoFisica;
 	    private List<Avaliacao> avaliacoes;
 		
 	    public Aluno(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
@@ -45,6 +46,15 @@ public class Aluno extends Pessoa {
 				
 		}
 		
+		
+		public AvaliacaoFisica getAvaliacaoFisica() {
+			return avaliacaoFisica;
+		}
+
+		public void setAvaliacaoFisica(AvaliacaoFisica avaliacaoFisica) {
+			this.avaliacaoFisica = avaliacaoFisica;
+		}
+
 		//métodos
 		public void menuAluno() {
 			System.out.printf("1-Editar\n2-Sair");
@@ -55,11 +65,13 @@ public class Aluno extends Pessoa {
 			return super.toString() + String.format("""
 					Plano contratado: %s
 					Data Matricula: %s
-					Avaliações: %s
-					""", planoContratado, dataMatricula, avaliacoes);
+					Avaliações Físicas: %s
+					""", planoContratado, dataMatricula, avaliacaoFisica);
 					
 				
 		}
+
+		
 			
 	    
 }

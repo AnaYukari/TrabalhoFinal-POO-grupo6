@@ -1,19 +1,27 @@
 package org.javaFit.main;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 import org.javaFit.classes.Aluno;
+import org.javaFit.classes.AvaliacaoFisica;
 import org.javaFit.classes.Funcionario;
 import org.javaFit.classes.PersonalTrainer;
 import org.javaFit.classes.Pessoa;
 import org.javaFit.classes.Plano;
 
 public class SistemaAcademia {
-	static Aluno menuAluno;
-	static PersonalTrainer menuPersonalTrainer;
-	static Funcionario menuFuncionario;
+//	static Aluno menuAluno;
+//	static PersonalTrainer menuPersonalTrainer;
+//	static Funcionario menuFuncionario;
+//	Scanner leitura = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		 Aluno menuAluno;
+		 PersonalTrainer menuPersonalTrainer;
+		 Funcionario menuFuncionario;
+		Scanner leitura = new Scanner(System.in);
+
 
 		Plano planoBasico = new Plano("Básico", 74.90, "\nAcesso completo ao espaço da academia.\n"
 				+ "Uso de equipamentos de cardio e musculação.\n"
@@ -56,8 +64,29 @@ public class SistemaAcademia {
 		
 		Pessoa pessoa1 = new Aluno("Victor", "12345678911", LocalDate.of(1992, 05, 15), "22999124405", "123456", planoBasico, LocalDate.of(2024, 04, 11));
 		
-		System.out.println(pessoa1);
+		Aluno aluno1 = new Aluno ("Ana Yukari", "143.543.654-43", LocalDate.of(2005, 05, 17), "ana@gmail.com", "Ana123", planoBasico, LocalDate.now());
 		
-		menuAluno.menuAluno();
+		
+		
+//		System.out.println(pessoa1);
+//		
+//		menuAluno.menuAluno();
+//		
+//		System.out.println(aluno1);
+//		
+		
+		System.out.println("1 para adiconar avaliacao");
+		int opcao;
+		opcao = leitura.nextInt();
+		
+		switch(opcao) {
+		
+		case 1:
+			//Metodo pro Personal Trainer registrar a avaliacao fisica de um aluno.
+			AvaliacaoFisica avaliacaoF1 = new AvaliacaoFisica(1.66 , 64);
+			aluno1.setAvaliacaoFisica(avaliacaoF1);
+			System.out.println(aluno1);
+		break;
+		}
 	}
 }
