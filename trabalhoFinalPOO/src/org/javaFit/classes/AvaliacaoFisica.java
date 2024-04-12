@@ -10,7 +10,7 @@ public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
 		this.peso = peso;
 	}
 	
-	 double imc = peso/(altura*altura);
+
 
 	public double getAltura() {
 		return altura;
@@ -27,31 +27,27 @@ public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
-
-	public double getImc() {
-		return imc;
-	}
-	
+	 
 	public String calculaSituacao() {
+		double imc = peso / (altura*altura);
 		if (imc >= 40.0) {
-			situacaoImc = "O IMC dessa pessoa é: %.2f - Obesidade Grau 3.";
+			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Obesidade Grau 3.", imc);
 		}else if(imc >= 35.0) {
-			situacaoImc = "O IMC dessa pessoa é: %.2f - Obesidade Grau 2.";
+			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Obesidade Grau 2.", imc);
 		}else if(imc >= 30.0) {
-			situacaoImc = "O IMC dessa pessoa é: %.2f -  Obesidade Grau 1.";
+			situacaoImc = String.format("O IMC dessa pessoa é: %.2f -  Obesidade Grau 1.", imc);
 		}else if(imc >= 25.0) {
-			situacaoImc = "O IMC dessa pessoa é: %.2f - Pré-obesidade.";
+			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Pré-obesidade.", imc);
 		}else if(imc >= 18.5) {
-			situacaoImc = "O IMC dessa pessoa é: %.2f - Peso Normal.";
+			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Peso Normal.", imc);
 		}
 		return situacaoImc;
 	}
 	
-
 	
 	@Override
 	public String toString() {
-		return "AvaliacaoFisica [altura=" + altura + ", peso=" + peso + ", imc=" + imc + "Situação do Aluno: " + calculaSituacao() ;
+		return String.format("\nAltura: %.2fm\nPeso: %.2fkg\nIMC: %.2f\nSituação do Aluno: %s", altura, peso, peso / (altura*altura), calculaSituacao());
 	}
 
 	
