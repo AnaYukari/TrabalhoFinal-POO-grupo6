@@ -11,7 +11,7 @@ public abstract class Pessoa {
     protected String contato;
     protected String senha;
 	
-    public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
+	public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
@@ -59,7 +59,6 @@ public abstract class Pessoa {
 		this.senha = senha;
 	}
 
-	
 	@Override
 	public String toString() {
 		return String.format("""
@@ -68,7 +67,7 @@ public abstract class Pessoa {
 				Data de Nascimento: %s
 				Contato: %s
 				""", nome, cpf, dataNascimento, contato);
-					
+
 	}
-    
+
 }

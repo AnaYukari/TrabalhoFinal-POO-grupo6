@@ -19,11 +19,6 @@ public class Funcionario extends Pessoa {
 		this.cargo = cargo;
 	}
 
-	//métodos
-	public void menuFuncionario() {
-		System.out.printf("1-Editar\n2-Sair");
-	}
-
 	@Override
 	public String toString() {
 		return String.format("""

@@ -54,11 +54,6 @@ public class PersonalTrainer extends Pessoa {
 		this.horarioAtendimento = horarioAtendimento;
 	}
 
-	//métodos
-	public void menuPersonalTrainer() {
-		System.out.printf("1-Editar\n2-Sair");
-	}
-
 
 		@Override
 		public String toString() {
