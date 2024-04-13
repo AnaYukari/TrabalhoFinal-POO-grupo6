@@ -5,13 +5,13 @@ import java.time.LocalDate;
 //classe mãe de Aluno, Funcionario e PersonalTrainer
 public abstract class Pessoa {
 
-    private String nome;
-    private String cpf;
-    private LocalDate dataNascimento;
-    private String contato;
-    private String senha;
-	
-    public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
+	protected String nome;
+	protected String cpf;
+	protected LocalDate dataNascimento;
+	protected String contato;
+	protected String senha;
+
+	public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
@@ -59,7 +59,6 @@ public abstract class Pessoa {
 		this.senha = senha;
 	}
 
-	
 	@Override
 	public String toString() {
 		return String.format("""
@@ -68,7 +67,7 @@ public abstract class Pessoa {
 				Data de Nascimento: %s
 				Contato: %s
 				""", nome, cpf, dataNascimento, contato);
-					
+
 	}
-    
+
 }
