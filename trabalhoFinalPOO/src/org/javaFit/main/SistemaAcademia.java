@@ -57,7 +57,7 @@ public class SistemaAcademia {
 						+ "Os treinadores trabalham em estreita colaboração com os membros para desenvolver um plano de treinamento que atenda às suas necessidades e objetivos esportivos.");
 
 		// testes de print
-		planoBasico.setDuracaoPlano(7);
+		planoBasico.setDuracaoPlano(25);
 		planoBasico.aplicarDesconto();
 		//System.out.println(planoBasico);
 
@@ -67,6 +67,7 @@ public class SistemaAcademia {
 		Aluno aluno1 = new Aluno ("Ana Yukari", "143.543.654-43", LocalDate.of(2005, 05, 17), "ana@gmail.com", "Ana123", planoBasico, LocalDate.now());
 		
 		
+		menus.menuInicial();
 		
 		menus.menuPersonalTrainer(pessoa1, aluno1);
 		

@@ -3,12 +3,29 @@ package org.javaFit.classes;
 import java.util.Scanner;
 
 public class Menu {
+//	Cadastros pessoaCadastrada = new Cadastros();
 	Scanner leitura = new Scanner(System.in);
 	
+	//Menu Inicial
+	public void menuInicial() {
+		String login;
+		String senha;
+		
+		System.out.println("Login(CPF): ");
+		login = leitura.nextLine();
+		
+	//	if (login == pessoaCadastrada.List<Pessoa>(1))
+		
+		System.out.println("Senha: ");
+		senha = leitura.nextLine();
+		
+	}
+		
 	//Menu pro PersonalTrainer
 	public void menuPersonalTrainer(Pessoa pessoa, Aluno aluno){
-		System.out.println("1- Visualizar agenda de atendimentos\n2- Registrar avaliações físicas dos alunos\n3- Visualizar lista de avaliações realizadas");
 		int opcao;
+		
+		System.out.println("1- Visualizar agenda de atendimentos\n2- Registrar avaliações físicas dos alunos\n3- Visualizar lista de avaliações realizadas");
 		opcao = leitura.nextInt();
 		
 		switch(opcao) {
@@ -90,27 +107,27 @@ public class Menu {
 				switch(opcaoAluno) {
 	
 				case 1:
-					//1. Cadastrar novo plano
+					//1. Visualizar dados pessoais e plano contratado.
 				break;
 				
 				case 2:
-					//2. Cadastrar novo aluno
-
+					//2. Solicitar agendamento de horário com personal trainer.
 				break;
 				
 				case 3:
-					//3. Cadastrar novo Personal Trainer
+					//3. Visualizar histórico de agendamentos.
 				break;
 				
 				case 4:
-					//4. Emtir relatório de planos
+					//4. Cancelar agendamento.
 				break;
 				
 				case 5:
-					//5. Emitir relatório de alunos
+					//5. Visualizar avaliações físicas.
 				break;
-			}
+				}		
 		}
+		
 	}
 	
 }

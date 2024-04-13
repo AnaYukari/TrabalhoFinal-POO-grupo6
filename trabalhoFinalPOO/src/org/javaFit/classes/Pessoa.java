@@ -5,11 +5,11 @@ import java.time.LocalDate;
 //classe mãe de Aluno, Funcionario e PersonalTrainer
 public abstract class Pessoa {
 
-    private String nome;
-    private String cpf;
-    private LocalDate dataNascimento;
-    private String contato;
-    private String senha;
+	protected String nome;
+    protected String cpf;
+    protected LocalDate dataNascimento;
+    protected String contato;
+    protected String senha;
 	
     public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
 		this.nome = nome;
