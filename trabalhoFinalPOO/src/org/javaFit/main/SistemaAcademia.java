@@ -189,8 +189,8 @@ public class SistemaAcademia {
             while (!sair) {
                 System.out.println("\n### Menu do Funcionário ###");
                 System.out.println("1. Cadastrar novo plano");
-                System.out.println("2. Cadastrar novo aluno");
-                System.out.println("3. Cadastrar novo Personal Trainer");
+                System.out.println("2. Cadastrar novo aluno a partir de um arquivo .txt externo");
+                System.out.println("3. Cadastrar novo Personal Trainer a partir de um arquivo .txt externo");
                 System.out.println("4. Emitir relatório de planos");
                 System.out.println("5. Emitir relatório de alunos");
                 System.out.println("6. Emitir relatório de equipe (funcionários e personal trainers)");
@@ -205,7 +205,8 @@ public class SistemaAcademia {
                         break;
                     case 2:
                         //Cadastrar novo aluno
-                		try {
+                    	Plano tipoPlano;
+                    	try {
                 			BufferedReader br = new BufferedReader(new FileReader("Alunos.txt"));
                 			
                 			while(br.ready()) {
@@ -216,10 +217,47 @@ public class SistemaAcademia {
                 				LocalDate dataNascimento = LocalDate.parse(partes[2]);
                 				String contato = partes[3];
                 				String senha = partes[4];
-//                				Plano plano = partes[5];
+                				String tipoPlanoString = partes[5];
                 				LocalDate dataMatricula = LocalDate.parse(partes[6]);
                 				
-                				Pessoa pessoa = new Aluno(nome, cpf, dataNascimento, contato, senha, null, dataMatricula);
+                				if (tipoPlanoString.equals("planoBasico")) {
+                				    tipoPlano = new Plano("Básico", 74.90, "\nAcesso completo ao espaço da academia.\n"
+                							+ "Uso de equipamentos de cardio e musculação.\n"
+                							+ "Aulas em grupo regulares, como aeróbica, spinning e pilates.\n"
+                							+ "Acesso aos vestiários e chuveiros.\n"
+                							+ "Orientação inicial de um instrutor.\n"
+                							+ "Acompanhamento básico de progresso.");
+                				} else if (tipoPlanoString.equals("planoPremium")) {
+                				    tipoPlano = new Plano("Premium", 94.90, "\nTodos os benefícios do plano básico.\n"
+                							+ "Acesso a aulas especiais, como ioga, treinamento funcional e dança.\n"
+                							+ "Sessões adicionais de treinamento personalizado.\n"
+                							+ "Acesso a serviços extras, como sauna, banho de vapor e piscina.\n"
+                							+ "Avaliação física detalhada e planejamento de metas personalizadas.\n"
+                							+ "Acompanhamento nutricional individualizado.");
+                				} else if (tipoPlanoString.equals("planoFamiliar")) {
+                				    tipoPlano = new Plano("Familiar", 59.90,
+                							"\nTodos os benefícios do plano básico para todos os membros da família.\n"
+                									+ "Descontos especiais para famílias.\n"
+                									+ "Aulas em grupo para todas as idades, incluindo crianças e idosos.\n"
+                									+ "Acesso a programas especiais de fitness em família.");
+                				} else if (tipoPlanoString.equals("planoCorporativo")) {
+                				    tipoPlano = new Plano("Corporativo", 54.90,
+                							"\nBenefícios do plano básico para funcionários da empresa.\n"
+                									+ "Descontos corporativos.\n"
+                									+ "Possibilidade de personalizar os serviços de acordo com as necessidades da empresa.\n"
+                									+ "Horários exclusivos para funcionários da empresa.\n"
+                									+ "Programas especiais de bem-estar e saúde ocupacional.");
+                				} else if (tipoPlanoString.equals("planoEsportivo")) {
+                				    tipoPlano = new Plano("Esportivo", 39.90,
+                							"\nDirecionado a atletas ou entusiastas de esportes que desejam melhorar seu desempenho em sua modalidade específica.\n"
+                									+ "Inclui acesso a treinadores especializados em esportes específicos, como corrida, natação, basquete, tênis, entre outros.\n"
+                									+ "Os membros recebem treinamento personalizado, que pode incluir exercícios de força, condicionamento cardiovascular, agilidade, velocidade e coordenação.\n"
+                									+ "Os treinadores trabalham em estreita colaboração com os membros para desenvolver um plano de treinamento que atenda às suas necessidades e objetivos esportivos.");
+                				} else {
+                				    System.out.println("Erro nas informações do arquivo. (Plano não encontrado)");
+                				    return;
+                				}
+                				Pessoa pessoa = new Aluno(nome, cpf, dataNascimento, contato, senha, tipoPlano, dataMatricula);
                 				pessoasRegistradas.add(pessoa);
 
                 			}
@@ -246,6 +284,7 @@ public class SistemaAcademia {
                         //Emitir relação de avaliações físicas por período
                         break;
                     case 8:
+                    	System.out.println(pessoasRegistradas);
                     	sair = true;
                     	System.out.println("Finalizando o sistema...");
                         break;

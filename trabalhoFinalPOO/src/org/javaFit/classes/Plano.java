@@ -5,6 +5,7 @@ public class Plano {
 	private int duracaoPlano; //duração do plano em meses
 	private double valorPlano; //valor do plano mensal
 	private String descricaoPlano; //descrição do plano
+
 	
 	public Plano(String nomePlano, double valorPlano, String descricaoPlano) {
 		this.nomePlano = nomePlano;
