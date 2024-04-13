@@ -15,7 +15,7 @@ O objetivo deste projeto é simular o funcionamento de uma academia, permitindo 
   LinkedIn - https://www.linkedin.com/in/anayukari/
 
 - **Kayque Lucas Silva Neves**  
-  LinkedIn - (link para o perfil do LinkedIn)
+  LinkedIn - https://www.linkedin.com/in/kayque-lucas-dev/
 
 - **Maria Eduarda Goes Pelaggi**  
   LinkedIn - (link para o perfil do LinkedIn)
