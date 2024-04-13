@@ -5,13 +5,13 @@ import java.time.LocalDate;
 //subclasse de Pessoa
 public class PersonalTrainer extends Pessoa {
 
-    private String especialidade;
+    private Especialidade especialidade;
     private String cref;
     private String horarioAtendimento;
 
         
 	public PersonalTrainer(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
-			String especialidade, String cref, String horarioAtendimento) {
+			Especialidade especialidade, String cref, String horarioAtendimento) {
 		super(nome, cpf, dataNascimento, contato, senha);
 		this.especialidade = especialidade;
 		this.cref = cref;
@@ -20,13 +20,13 @@ public class PersonalTrainer extends Pessoa {
 
 		
 
-		public String getEspecialidade() {
+		public Especialidade getEspecialidade() {
 		return especialidade;
 	}
 
 
 
-	public void setEspecialidade(String especialidade) {
+	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
 
