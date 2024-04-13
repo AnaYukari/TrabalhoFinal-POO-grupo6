@@ -6,23 +6,23 @@ import java.util.Scanner;
 import org.javaFit.classes.Aluno;
 import org.javaFit.classes.AvaliacaoFisica;
 import org.javaFit.classes.Funcionario;
+import org.javaFit.classes.Menu;
+import org.javaFit.classes.MetodosUteis;
 import org.javaFit.classes.PersonalTrainer;
 import org.javaFit.classes.Pessoa;
 import org.javaFit.classes.Plano;
 
 public class SistemaAcademia {
-//	static Aluno menuAluno;
-//	static PersonalTrainer menuPersonalTrainer;
-//	static Funcionario menuFuncionario;
-//	Scanner leitura = new Scanner(System.in);
+	//static MetodosUteis limpa;
 
 	public static void main(String[] args) {
-		 Aluno menuAluno;
-		 PersonalTrainer menuPersonalTrainer;
-		 Funcionario menuFuncionario;
+		Aluno menuAluno;
+		PersonalTrainer menuPersonalTrainer;
+		Funcionario menuFuncionario;
 		Scanner leitura = new Scanner(System.in);
+		Menu menus = new Menu();
 
-
+		//inclusão de planos
 		Plano planoBasico = new Plano("Básico", 74.90, "\nAcesso completo ao espaço da academia.\n"
 				+ "Uso de equipamentos de cardio e musculação.\n"
 				+ "Aulas em grupo regulares, como aeróbica, spinning e pilates.\n"
@@ -61,32 +61,18 @@ public class SistemaAcademia {
 		planoBasico.aplicarDesconto();
 		//System.out.println(planoBasico);
 
-		
+		//inclusão de pessoas
 		Pessoa pessoa1 = new Aluno("Victor", "12345678911", LocalDate.of(1992, 05, 15), "22999124405", "123456", planoBasico, LocalDate.of(2024, 04, 11));
 		
 		Aluno aluno1 = new Aluno ("Ana Yukari", "143.543.654-43", LocalDate.of(2005, 05, 17), "ana@gmail.com", "Ana123", planoBasico, LocalDate.now());
 		
 		
 		
-//		System.out.println(pessoa1);
-//		
-//		menuAluno.menuAluno();
-//		
-//		System.out.println(aluno1);
-//		
+		menus.menuPersonalTrainer(pessoa1, aluno1);
 		
-		System.out.println("1 para adiconar avaliacao");
-		int opcao;
-		opcao = leitura.nextInt();
+		menus.menuFuncionario();
 		
-		switch(opcao) {
+		menus.menuAluno();
 		
-		case 1:
-			//Metodo pro Personal Trainer registrar a avaliacao fisica de um aluno.
-			AvaliacaoFisica avaliacaoF1 = new AvaliacaoFisica(1.66 , 64);
-			aluno1.setAvaliacaoFisica(avaliacaoF1);
-			System.out.println(aluno1);
-		break;
-		}
-	}
+  	}
 }

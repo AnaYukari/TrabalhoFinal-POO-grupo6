@@ -58,8 +58,4 @@ public class Avaliacao {
 					Descrição: %s
 					""", aluno, data, personalTrainer, descricao);
 		}
-	    
-	    
-	    
-
 }

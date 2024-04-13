@@ -4,7 +4,7 @@ public class MetodosUteis {
 	
 	//método para limpar console
 	@SuppressWarnings("deprecation")
-	public final static void clearConsole()
+	public void clearConsole()
 	{
 	    try
 	    {
