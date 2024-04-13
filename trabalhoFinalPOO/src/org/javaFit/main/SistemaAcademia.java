@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.javaFit.classes.Plano;
-
+import org.javaFit.classes.Especialidade;
 import org.javaFit.classes.Aluno;
 import org.javaFit.classes.Funcionario;
 import org.javaFit.classes.PersonalTrainer;
@@ -60,10 +60,10 @@ public class SistemaAcademia {
     	
     	//inclusão pessoas inicias para teste
         Aluno aluno1 = new Aluno("Madu", "123.456.789-00", LocalDate.of(1999, 06, 19), "123456789", "senha123", planoBasico, LocalDate.now());
-        PersonalTrainer personalTrainer1 = new PersonalTrainer("Nicolle", "478.655.489-54", LocalDate.of(2005, 05, 17), "987654321", "senha456", "Natação", "123ABC", "08:00 - 12:00");
+        PersonalTrainer personalTrainer1 = new PersonalTrainer("Nicolle", "478.655.489-54", LocalDate.of(2005, 05, 17), "987654321", "senha456", null, "123ABC", "08:00 - 12:00");
         Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(1998, 04, 15), "111222333", "senha789", "Gerente");
         Aluno aluno2 = new Aluno("Alexandre", "728.765.446-86", LocalDate.of(1989, 11, 8), "123456789", "senha999", planoPremium, LocalDate.now());
-        PersonalTrainer personalTrainer2 = new PersonalTrainer("Kayque", "987.654.321-00", LocalDate.of(2002, 9, 21), "987654321", "senha888", "Musculação", "789456", "13:00 - 17:00");
+        PersonalTrainer personalTrainer2 = new PersonalTrainer("Kayque", "987.654.321-00", LocalDate.of(2002, 9, 21), "987654321", "senha888", null, "789456", "13:00 - 17:00");
         Funcionario funcionario2 = new Funcionario("Victor", "442.478.265-98", LocalDate.of(1992, 05, 15), "111222333", "senha777", "Atendente");
         pessoasRegistradas.add(aluno1);
         pessoasRegistradas.add(aluno2);
