@@ -84,40 +84,7 @@ public class Aluno extends Pessoa {
 				""", nome, cpf, dataNascimento, contato, planoContratado, dataMatricula);
 	}
 
-	/**
-	 * Solicita um agendamento.
-	 * 
-	 * @param agendamento O agendamento a ser solicitado.
-	 */
 
-	public void solicitarAgendamento(Agendamento agendamento) {
-		boolean conflito = false;
-		for (Agendamento ag : agendamentos) {
-			if (ag.getDataAgendamento().equals(agendamento.getDataAgendamento()) &&
-					ag.getHoraAgendamento().equals(agendamento.getHoraAgendamento()))
-				conflito = true;
-			break;
-		}
-		if (conflito) {
-			System.out.println("Já existe um agendamento para esta data e hora");
-		} else {
-			agendamentos.add(agendamento);
-			System.out.println("Agendamento realizado com sucesso!");
-		}
-	}
-
-	/**
-	 * Exibe o histórico de agendamento.
-	 */
-
-	public void vizualizarHistoricoAgendamento() {
-		System.out.println("Historico de Agendamento: ");
-		for (Agendamento ag : agendamentos) {
-			System.out.println("Data: " + ag.getDataAgendamento() +
-					"Horario :" + ag.getHoraAgendamento());
-		}
-
-	}
     //Método para aplicar desconto conforme duração do plano
 	//!!!!!! Pedir ajuda com desconto para valores de plano !!!!!!!!!!!!!!!!!!
     public double aplicarDesconto() {

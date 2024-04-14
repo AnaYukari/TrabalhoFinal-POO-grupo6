@@ -23,74 +23,36 @@ public class SistemaAcademia {
     private static List<PersonalTrainer> personalTrainers = new ArrayList<>();
 
     public static void main(String[] args) {
-
-    	//inclusão de planos
-		Plano planoBasico = new Plano("Básico", 74.90, "\nAcesso completo ao espaço da academia.\n"
-				+ "Uso de equipamentos de cardio e musculação.\n"
-				+ "Aulas em grupo regulares, como aeróbica, spinning e pilates.\n"
-				+ "Acesso aos vestiários e chuveiros.\n"
-				+ "Orientação inicial de um instrutor.\n"
-				+ "Acompanhamento básico de progresso.");
-
-		Plano planoPremium = new Plano("Premium", 94.90, "\nTodos os benefícios do plano básico.\n"
-				+ "Acesso a aulas especiais, como ioga, treinamento funcional e dança.\n"
-				+ "Sessões adicionais de treinamento personalizado.\n"
-				+ "Acesso a serviços extras, como sauna, banho de vapor e piscina.\n"
-				+ "Avaliação física detalhada e planejamento de metas personalizadas.\n"
-				+ "Acompanhamento nutricional individualizado.");
-
-		Plano planoFamiliar = new Plano("Familiar", 59.90,
-				"\nTodos os benefícios do plano básico para todos os membros da família.\n"
-						+ "Descontos especiais para famílias.\n"
-						+ "Aulas em grupo para todas as idades, incluindo crianças e idosos.\n"
-						+ "Acesso a programas especiais de fitness em família.");
-
-		Plano planoCorporativo = new Plano("Corporativo", 54.90,
-				"\nBenefícios do plano básico para funcionários da empresa.\n"
-						+ "Descontos corporativos.\n"
-						+ "Possibilidade de personalizar os serviços de acordo com as necessidades da empresa.\n"
-						+ "Horários exclusivos para funcionários da empresa.\n"
-						+ "Programas especiais de bem-estar e saúde ocupacional.");
-
-		Plano planoEsportivo = new Plano("Esportivo", 39.90,
-				"\nDirecionado a atletas ou entusiastas de esportes que desejam melhorar seu desempenho em sua modalidade específica.\n"
-						+ "Inclui acesso a treinadores especializados em esportes específicos, como corrida, natação, basquete, tênis, entre outros.\n"
-						+ "Os membros recebem treinamento personalizado, que pode incluir exercícios de força, condicionamento cardiovascular, agilidade, velocidade e coordenação.\n"
-						+ "Os treinadores trabalham em estreita colaboração com os membros para desenvolver um plano de treinamento que atenda às suas necessidades e objetivos esportivos.");
-
-		planos.add(planoBasico);
-		planos.add(planoPremium);
-		planos.add(planoFamiliar);
-		planos.add(planoCorporativo);
-		planos.add(planoEsportivo);
     	
     	//inclusão de funcionários iniciais do sistema
         Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(1998, 04, 15), "yukari@sushi.com", "senha789", "Gerente");
         Funcionario funcionario2 = new Funcionario("Victor", "161.015.727-30", LocalDate.of(1992, 05, 15), "999124405", "senha777", "Atendente");
+        Funcionario funcionario3 = new Funcionario("Jacqueline", "275.655.478-96", LocalDate.of(1997, 06, 16), "jacqueline@serratec.com", "senha555", "Presidente da Empresa");
 
         pessoasRegistradas.add(funcionario1);
         pessoasRegistradas.add(funcionario2);
+        pessoasRegistradas.add(funcionario3);
         
 		//início do programa
         boolean sair = false;
         while (!sair) {
-            System.out.println("Academia Serratec!");
+            System.out.println("Academia Serratec!\n");
             System.out.println("1. Fazer login.");
             System.out.println("2. Sair.\n");
 
-            int opcaoInicial = getIntInput("Escolha uma opção: ");
+            int opcaoInicial = getIntInput("Escolha uma opção.\n");
             
             switch (opcaoInicial) {	
             case 1:
-        		System.out.println("Selecione uma opção: ");
-        		System.out.println("  ### Login ###");
+        		System.out.println("### Login ###\n");
         	    String cpf = getInput("CPF: ");
         	    String senha = getInput("Senha: ");
         		
         	    login(cpf, senha);
                 break;
             case 2:
-                sair = true;
+                System.out.println("Finalizando o sistema...");
+            	sair = true;
                 break;        
             }	
         }
@@ -99,12 +61,14 @@ public class SistemaAcademia {
 	    private static void login(String cpf, String senha) {
 	        for (Pessoa pessoa : pessoasRegistradas) {
 	            if (cpf.equals(pessoa.getCpf()) && senha.equals(pessoa.getSenha())) {
-	                System.out.println("\nLogin bem-sucedido como " + pessoa.getNome() + ".");
 	                if (pessoa instanceof Aluno) {
+		                System.out.println("\nLogin bem-sucedido como aluno(a) " + pessoa.getNome() + ".");
 			            menuAluno((Aluno) pessoa);
 			        } else if (pessoa instanceof PersonalTrainer) {
+		                System.out.println("\nLogin bem-sucedido como personal trainer " + pessoa.getNome() + ".");
 			            menuPersonalTrainer((PersonalTrainer) pessoa);
 			        } else if (pessoa instanceof Funcionario) {
+		                System.out.println("\nLogin bem-sucedido como funcionário(a) " + pessoa.getNome() + ".");
 			            menuFuncionario((Funcionario) pessoa);
 			        }
 	                return;
@@ -115,7 +79,7 @@ public class SistemaAcademia {
         private static void menuAluno(Aluno aluno) {
             boolean sair = false;
             while (!sair) {
-                System.out.println("\n### Menu do Aluno ###");
+                System.out.println("\n### Menu do Aluno ###\n");
                 System.out.println("1. Visualizar dados pessoais e plano contratado.");
                 System.out.println("2. Solicitar agendamento de horário com personal trainer.");
                 System.out.println("3. Visualizar histórico de agendamentos.");
@@ -128,7 +92,7 @@ public class SistemaAcademia {
                 switch (escolha) {
                     case 1:
                     	//Visualizar dados pessoais e plano contratado.
-                    	System.out.println("Dados pessoais:");
+                    	System.out.println("Dados pessoais:\n");
                         System.out.println("Nome: " + aluno.getNome());
                         System.out.println("CPF: " + aluno.getCpf());
                         System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
@@ -152,11 +116,11 @@ public class SistemaAcademia {
                         //Visualizar avaliações físicas.
                         break;
                     case 6:
-                    	System.out.println("Finalizando o sistema...");
+                    	System.out.println("Log off...\n");
                     	sair = true;
                         break;
                     default:
-                        System.out.println("Opção inválida. Tente novamente.");
+                        System.out.println("\nOpção inválida. Tente novamente.\n");
                 }
             }
     }
@@ -165,13 +129,13 @@ public class SistemaAcademia {
     private static void menuPersonalTrainer(PersonalTrainer personalTrainer) {
             boolean sair = false;
             while (!sair) {
-                System.out.println("\n### Menu do Personal Trainer ###");
+                System.out.println("\n### Menu do Personal Trainer ###\n");
                 System.out.println("1. Visualizar agenda de atendimentos");
                 System.out.println("2. Registrar avaliações físicas dos alunos");
                 System.out.println("3. Visualizar lista de avaliações realizadas");
                 System.out.println("4. Sair");
 
-                int opcao = getIntInput("Escolha uma opção: ");
+                int opcao = getIntInput("Escolha uma opção.");
 
                 switch (opcao) {
                     case 1:
@@ -185,7 +149,7 @@ public class SistemaAcademia {
                         break;
                     case 4:
                         sair = true;
-                    	System.out.println("Finalizando o sistema...");
+                    	System.out.println("Log off...\n");
                         break;
                     default:
                         System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
@@ -198,107 +162,84 @@ public class SistemaAcademia {
     private static void menuFuncionario(Funcionario funcionario) {
             boolean sair = false;
             while (!sair) {
-                System.out.println("\n### Menu do Funcionário ###");
-                System.out.println("1. Cadastrar novo plano");
-                System.out.println("2. Cadastrar novo aluno a partir de um arquivo .txt externo");
-                System.out.println("3. Cadastrar novo Personal Trainer a partir de um arquivo .txt externo");
+                System.out.println("\n### Menu do Funcionário ###\n");
+                System.out.println("1. Cadastrar novo plano a partir de um arquivo de texto externo");
+                System.out.println("2. Cadastrar novo aluno a partir de um arquivo de texto externo");
+                System.out.println("3. Cadastrar novo Personal Trainer a partir de um arquivo de texto externo");
                 System.out.println("4. Emitir relatório de planos");
                 System.out.println("5. Emitir relatório de alunos");
                 System.out.println("6. Emitir relatório de equipe (funcionários e personal trainers)");
                 System.out.println("7. Emitir relação de avaliações físicas por período");
                 System.out.println("8. Sair");
 
-                int opcao = getIntInput("Escolha uma opção: ");
+                int opcao = getIntInput("Escolha uma opção.");
 
                 switch (opcao) {
-                    case 1:
-                        //Cadastrar novo plano
-                    	try {
-                			BufferedReader br = new BufferedReader(new FileReader("Planos.txt"));
-                			
-                			while(br.ready()) {
-                				String linha = br.readLine();
-                				String[] partes = linha.split(";");
-                				String nome = partes[0];
-                				double valor = Integer.parseInt(partes[1]);
-                				String descricao = partes[2];
-                				
-                				Plano plano = new Plano(nome, valor, descricao);
-                				planos.add(plano);
-                			}
-                			br.close();
-                		} catch (FileNotFoundException e) {
-                			System.out.println("Erro original: " + e.getMessage());
-                		} catch (IOException e) {
-                			System.out.println("Erro lendo o arquivo: " + e.getMessage());
-                		}
-                        break;
-                    case 2:
-                        //Cadastrar novo aluno
-                    	Plano tipoPlano;
-                    	try {
-                			BufferedReader br = new BufferedReader(new FileReader("Alunos.txt"));
-                			
-                			while(br.ready()) {
-                				String linha = br.readLine();
-                				String[] partes = linha.split(";");
-                				String nome = partes[0];
-                				String cpf = partes[1];
-                				LocalDate dataNascimento = LocalDate.parse(partes[2]);
-                				String contato = partes[3];
-                				String senha = partes[4];
-                				String tipoPlanoString = partes[5];
-                				int duracaoPlano = Integer.parseInt(partes[6]);
-                				LocalDate dataMatricula = LocalDate.parse(partes[7]);
-                				
-                				if (tipoPlanoString.equals("planoBasico")) {
-                				    tipoPlano = new Plano("Básico", 74.90, "\nAcesso completo ao espaço da academia.\n"
-                							+ "Uso de equipamentos de cardio e musculação.\n"
-                							+ "Aulas em grupo regulares, como aeróbica, spinning e pilates.\n"
-                							+ "Acesso aos vestiários e chuveiros.\n"
-                							+ "Orientação inicial de um instrutor.\n"
-                							+ "Acompanhamento básico de progresso.");
-                				} else if (tipoPlanoString.equals("planoPremium")) {
-                				    tipoPlano = new Plano("Premium", 94.90, "\nTodos os benefícios do plano básico.\n"
-                							+ "Acesso a aulas especiais, como ioga, treinamento funcional e dança.\n"
-                							+ "Sessões adicionais de treinamento personalizado.\n"
-                							+ "Acesso a serviços extras, como sauna, banho de vapor e piscina.\n"
-                							+ "Avaliação física detalhada e planejamento de metas personalizadas.\n"
-                							+ "Acompanhamento nutricional individualizado.");
-                				} else if (tipoPlanoString.equals("planoFamiliar")) {
-                				    tipoPlano = new Plano("Familiar", 59.90,
-                							"\nTodos os benefícios do plano básico para todos os membros da família.\n"
-                									+ "Descontos especiais para famílias.\n"
-                									+ "Aulas em grupo para todas as idades, incluindo crianças e idosos.\n"
-                									+ "Acesso a programas especiais de fitness em família.");
-                				} else if (tipoPlanoString.equals("planoCorporativo")) {
-                				    tipoPlano = new Plano("Corporativo", 54.90,
-                							"\nBenefícios do plano básico para funcionários da empresa.\n"
-                									+ "Descontos corporativos.\n"
-                									+ "Possibilidade de personalizar os serviços de acordo com as necessidades da empresa.\n"
-                									+ "Horários exclusivos para funcionários da empresa.\n"
-                									+ "Programas especiais de bem-estar e saúde ocupacional.");
-                				} else if (tipoPlanoString.equals("planoEsportivo")) {
-                				    tipoPlano = new Plano("Esportivo", 39.90,
-                							"\nDirecionado a atletas ou entusiastas de esportes que desejam melhorar seu desempenho em sua modalidade específica.\n"
-                									+ "Inclui acesso a treinadores especializados em esportes específicos, como corrida, natação, basquete, tênis, entre outros.\n"
-                									+ "Os membros recebem treinamento personalizado, que pode incluir exercícios de força, condicionamento cardiovascular, agilidade, velocidade e coordenação.\n"
-                									+ "Os treinadores trabalham em estreita colaboração com os membros para desenvolver um plano de treinamento que atenda às suas necessidades e objetivos esportivos.");
-                				} else {
-                				    System.out.println("Erro nas informações do arquivo. (Plano não encontrado)");
-                				    return;
-                				}
-                				Aluno aluno = new Aluno(nome, cpf, dataNascimento, contato, senha, tipoPlano, duracaoPlano, dataMatricula);
-                				aluno.aplicarDesconto();
-                				pessoasRegistradas.add(aluno);
-                			}
-                			br.close();
-                		} catch (FileNotFoundException e) {
-                			System.out.println("Erro original: " + e.getMessage());
-                		} catch (IOException e) {
-                			System.out.println("Erro lendo o arquivo: " + e.getMessage());
-                		}
-                        break;
+                case 1:
+                    //Cadastrar novo plano
+                    try {
+                        BufferedReader br = new BufferedReader(new FileReader("Planos.txt"));
+                        
+                        while (br.ready()) {
+                            String linha = br.readLine();
+                            String[] partes = linha.split(";");
+                            String nomePlano = partes[0];
+                            double valorPlano = Double.parseDouble(partes[1]);
+                            String descricaoPlano = partes[2];
+                            
+                            Plano novoPlano = new Plano(nomePlano, valorPlano, descricaoPlano);
+                            planos.add(novoPlano);
+                            System.out.println("Plano " + novoPlano.getNomePlano() + " cadastrado com sucesso!\n");
+                        }
+                        br.close();
+                    } catch (FileNotFoundException e) {
+                        System.out.println("Erro original: " + e.getMessage());
+                    } catch (IOException e) {
+                        System.out.println("Erro lendo o arquivo: " + e.getMessage());
+                    }
+                    break;
+                case 2:
+                    //Cadastrar novo aluno
+                    try {
+                        BufferedReader br = new BufferedReader(new FileReader("Alunos.txt"));
+                        
+                        while (br.ready()) {
+                            String linha = br.readLine();
+                            String[] partes = linha.split(";");
+                            String nome = partes[0];
+                            String cpf = partes[1];
+                            LocalDate dataNascimento = LocalDate.parse(partes[2]);
+                            String contato = partes[3];
+                            String senha = partes[4];
+                            String nomePlano = partes[5];
+                                                      
+                            Plano tipoPlano = null;
+                            for (Plano plano : planos) {
+                                if (plano.getNomePlano().equals(nomePlano)) {
+                                    tipoPlano = plano;
+                                    break;
+                                }
+                            }                           
+                            if (tipoPlano == null) {
+                                System.out.println("Plano não encontrado para o aluno(a) " + nome + ". Verifique o arquivo de planos.");
+                                continue;
+                            }
+                            
+                            int duracaoPlano = Integer.parseInt(partes[6]);
+                            LocalDate dataMatricula = LocalDate.parse(partes[7]);
+                            
+                            Aluno aluno = new Aluno(nome, cpf, dataNascimento, contato, senha, tipoPlano, duracaoPlano, dataMatricula);
+                            aluno.aplicarDesconto();
+                            pessoasRegistradas.add(aluno);
+                            System.out.println("Aluno(a) " + aluno.getNome() + " cadastrado(a) com sucesso!\n");
+                        }
+                        br.close();
+                    } catch (FileNotFoundException e) {
+                        System.out.println("Erro original: " + e.getMessage());
+                    } catch (IOException e) {
+                        System.out.println("Erro lendo o arquivo: " + e.getMessage());
+                    }
+                    break;
                     case 3:
                         //Cadastrar novo Personal Trainer
                     	try {
@@ -326,6 +267,7 @@ public class SistemaAcademia {
                 				PersonalTrainer personalTrainer = new PersonalTrainer(nome, cpf, dataNascimento, contato, senha, especialidade, cref, horarioAtendimento);
                 				pessoasRegistradas.add(personalTrainer);
                 				personalTrainers.add(personalTrainer);
+                				System.out.println("Personal trainer " + personalTrainer.getNome() + " cadastrado(a) com sucesso!\n");
                 			}
                 			br.close();
                 		} catch (FileNotFoundException e) {
@@ -338,7 +280,7 @@ public class SistemaAcademia {
                         //Emtir relatório de planos
                     	System.out.println("### Relatório de Planos ###");
                         for (Plano plano : planos) {
-                            System.out.println("Nome: " + plano.getNomePlano());
+                            System.out.println("Plano: " + plano.getNomePlano());
                             System.out.println("Valor: R$" + plano.getValorPlano());
                             System.out.println("Descrição: " + plano.getDescricaoPlano());
                             System.out.println("===============================================");
@@ -392,7 +334,7 @@ public class SistemaAcademia {
                         break;
                     case 8:                    	
                     	sair = true;
-                    	System.out.println("Finalizando o sistema...");
+                    	System.out.println("Log off...\n");
                         break;
                     default:
                         System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
@@ -425,7 +367,7 @@ public class SistemaAcademia {
         System.out.println("Personal Trainers Disponíveis:");
         for (int i = 0; i < personalTrainers.size(); i++) {
             PersonalTrainer personalTrainer = personalTrainers.get(i);
-            System.out.println((i + 1) + ". " + personalTrainer.getNome() + " - " + personalTrainer.getEspecialidade());
+            System.out.println((i + 1) + ". " + personalTrainer.getNome() + " - " + personalTrainer.getEspecialidade() + " - " + personalTrainer.getHorarioAtendimento());
         }
 
         int escolha;

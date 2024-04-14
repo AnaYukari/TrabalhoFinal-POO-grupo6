@@ -1,5 +1,5 @@
 package org.javaFit.classes;
-//classe que vai ligar com Aluno e PersonalTrainer
+
 
 import java.time.LocalDate;
 import java.time.LocalTime;

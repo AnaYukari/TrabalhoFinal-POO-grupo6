@@ -1,0 +1,5 @@
+Basico;74.90;Acesso completo ao espaço da academia. Uso de equipamentos de cardio e musculação.
+Premium;94.90;Acesso a aulas especiais, como ioga, treinamento funcional e dança. Sessões adicionais de treinamento personalizado.
+Familiar;59.90;Todos os benefícios do plano básico para todos os membros da família. Descontos especiais para famílias.
+Corporativo;54.90;Benefícios do plano básico para funcionários da empresa. Descontos corporativos.
+Esportivo;39.90;Direcionado a atletas ou entusiastas de esportes que desejam melhorar seu desempenho em sua modalidade específica.
