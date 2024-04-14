@@ -11,11 +11,13 @@ public class Aluno extends Pessoa {
 	private AvaliacaoFisica avaliacaoFisica;
 	private List<Avaliacao> avaliacoes;
 	private List<Agendamento> agendamentos;
+	private int duracaoPlano;
 
 	public Aluno(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
-			Plano planoContratado, LocalDate dataMatricula) {
+			Plano planoContratado, int duracaoPlano, LocalDate dataMatricula) {
 		super(nome, cpf, dataNascimento, contato, senha);
 		this.planoContratado = planoContratado;
+		this.duracaoPlano = duracaoPlano;
 		this.dataMatricula = dataMatricula;
 		this.agendamentos = new ArrayList<>();
 		this.avaliacoes = new ArrayList<>();
@@ -58,10 +60,13 @@ public class Aluno extends Pessoa {
 		this.avaliacaoFisica = avaliacaoFisica;
 	}
 
-	// métodos
-	public void menuAluno() {
-		System.out.printf("1-Editar\n2-Sair");
-	}
+    public int getDuracaoPlano() {
+        return duracaoPlano;
+    }
+
+    public void setDuracaoPlano(int duracaoPlano) {
+        this.duracaoPlano = duracaoPlano;
+    }
 
 	/**
 	 * Exibe os dados pessoais.
@@ -75,6 +80,7 @@ public class Aluno extends Pessoa {
 				Contato: %s
 				Plano Contratado: %s
 				Data de Matricula: %s
+				
 				""", nome, cpf, dataNascimento, contato, planoContratado, dataMatricula);
 	}
 
@@ -112,14 +118,32 @@ public class Aluno extends Pessoa {
 		}
 
 	}
+    //Método para aplicar desconto conforme duração do plano
+	//!!!!!! Pedir ajuda com desconto para valores de plano !!!!!!!!!!!!!!!!!!
+    public double aplicarDesconto() {
+        double valorComDesconto = planoContratado.getValorPlano();
+        if (duracaoPlano >= 6 && duracaoPlano < 12) {
+            valorComDesconto /= 1.1;
+        } else if (duracaoPlano >= 12 && duracaoPlano < 24) {
+            valorComDesconto /= 1.2;
+        } else if (duracaoPlano >= 24) {
+            valorComDesconto /= 1.3;
+        }
+        Plano plano = new Plano(contato, valorComDesconto, contato);
+        plano.setValorPlano(valorComDesconto);
+        return valorComDesconto;
+    }
+
 
 	@Override
 	public String toString() {
 		return super.toString() + String.format("""
 				Plano contratado: %s
+				Duração do plano: %d meses
 				Data Matricula: %s
 				Avaliações Físicas: %s
-				""", planoContratado, dataMatricula, avaliacaoFisica);
+				
+				""", planoContratado, duracaoPlano, dataMatricula, avaliacaoFisica);
 
 	}
 

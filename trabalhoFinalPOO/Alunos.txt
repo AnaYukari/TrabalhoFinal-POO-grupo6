@@ -1,1 +1,6 @@
-Gregório;489.746.148-66;1999-11-21;gregorio@email.com;senha222;planoFamiliar;2024-04-13
+Gregório;489.746.148-66;1999-11-21;gregorio@email.com;senha222;planoFamiliar;5;2024-04-13
+Clotilde;758.234.567-89;1987-06-15;clotilde@email.com;senha123;planoCorporativo;37;2024-04-13
+Eusébio;712.835.926-42;1985-09-07;eusebio@email.com;senha488;planoFamiliar;15;2024-04-13
+Cecília;753.829.461-32;1985-09-28;cecilia@email.com;senha183;planoPremium;39;2024-04-13
+Madu;123.456.789-00;1999-06-19;123456789;senha123;planoBasico;7;2024-04-13
+Alexandre;728.765.446-86;1989-11-08;123456789;senha999;planoPremium;14;2024-04-13

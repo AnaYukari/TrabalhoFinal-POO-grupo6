@@ -19,6 +19,8 @@ import org.javaFit.classes.Pessoa;
 public class SistemaAcademia {
     private static Scanner scanner = new Scanner(System.in);
     private static List<Pessoa> pessoasRegistradas = new ArrayList<>();
+    private static List<Plano> planos = new ArrayList<>();
+    private static List<PersonalTrainer> personalTrainers = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -56,52 +58,60 @@ public class SistemaAcademia {
 						+ "Os membros recebem treinamento personalizado, que pode incluir exercícios de força, condicionamento cardiovascular, agilidade, velocidade e coordenação.\n"
 						+ "Os treinadores trabalham em estreita colaboração com os membros para desenvolver um plano de treinamento que atenda às suas necessidades e objetivos esportivos.");
 
-
+		planos.add(planoBasico);
+		planos.add(planoPremium);
+		planos.add(planoFamiliar);
+		planos.add(planoCorporativo);
+		planos.add(planoEsportivo);
     	
-    	//inclusão pessoas inicias para teste
-        Aluno aluno1 = new Aluno("Madu", "123.456.789-00", LocalDate.of(1999, 06, 19), "123456789", "senha123", planoBasico, LocalDate.now());
-        PersonalTrainer personalTrainer1 = new PersonalTrainer("Nicolle", "478.655.489-54", LocalDate.of(2005, 05, 17), "987654321", "senha456", null, "123ABC", "08:00 - 12:00");
-        Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(1998, 04, 15), "111222333", "senha789", "Gerente");
-        Aluno aluno2 = new Aluno("Alexandre", "728.765.446-86", LocalDate.of(1989, 11, 8), "123456789", "senha999", planoPremium, LocalDate.now());
-        PersonalTrainer personalTrainer2 = new PersonalTrainer("Kayque", "987.654.321-00", LocalDate.of(2002, 9, 21), "987654321", "senha888", null, "789456", "13:00 - 17:00");
-        Funcionario funcionario2 = new Funcionario("Victor", "442.478.265-98", LocalDate.of(1992, 05, 15), "111222333", "senha777", "Atendente");
-        pessoasRegistradas.add(aluno1);
-        pessoasRegistradas.add(aluno2);
-        pessoasRegistradas.add(personalTrainer1);
-        pessoasRegistradas.add(personalTrainer2);
+    	//inclusão de funcionários iniciais do sistema
+        Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(1998, 04, 15), "yukari@sushi.com", "senha789", "Gerente");
+        Funcionario funcionario2 = new Funcionario("Victor", "161.015.727-30", LocalDate.of(1992, 05, 15), "999124405", "senha777", "Atendente");
+
         pessoasRegistradas.add(funcionario1);
         pessoasRegistradas.add(funcionario2);
         
-		//testes de duração de plano
-		planoBasico.setDuracaoPlano(25);
-		planoBasico.aplicarDesconto();
-	   
 		//início do programa
-		System.out.println("Academia Serratec!");
-		System.out.println("  ### Login ###");
-	    String cpf = getInput("CPF: ");
-	    String senha = getInput("Senha: ");
-		
-	    login(cpf, senha);
-    
-    }		
-	//Método para login	
-    private static void login(String cpf, String senha) {
-        for (Pessoa pessoa : pessoasRegistradas) {
-            if (cpf.equals(pessoa.getCpf()) && senha.equals(pessoa.getSenha())) {
-                System.out.println("Login bem-sucedido como " + pessoa.getNome() + ".");
-                if (pessoa instanceof Aluno) {
-		            menuAluno((Aluno) pessoa);
-		        } else if (pessoa instanceof PersonalTrainer) {
-		            menuPersonalTrainer((PersonalTrainer) pessoa);
-		        } else if (pessoa instanceof Funcionario) {
-		            menuFuncionario((Funcionario) pessoa);
-		        }
-                return;
-            }
+        boolean sair = false;
+        while (!sair) {
+            System.out.println("Academia Serratec!");
+            System.out.println("1. Fazer login.");
+            System.out.println("2. Sair.\n");
+
+            int opcaoInicial = getIntInput("Escolha uma opção: ");
+            
+            switch (opcaoInicial) {	
+            case 1:
+        		System.out.println("Selecione uma opção: ");
+        		System.out.println("  ### Login ###");
+        	    String cpf = getInput("CPF: ");
+        	    String senha = getInput("Senha: ");
+        		
+        	    login(cpf, senha);
+                break;
+            case 2:
+                sair = true;
+                break;        
+            }	
         }
-        System.out.println("CPF ou senha incorretos. Tente novamente.");
     }
+		//Método para login	
+	    private static void login(String cpf, String senha) {
+	        for (Pessoa pessoa : pessoasRegistradas) {
+	            if (cpf.equals(pessoa.getCpf()) && senha.equals(pessoa.getSenha())) {
+	                System.out.println("\nLogin bem-sucedido como " + pessoa.getNome() + ".");
+	                if (pessoa instanceof Aluno) {
+			            menuAluno((Aluno) pessoa);
+			        } else if (pessoa instanceof PersonalTrainer) {
+			            menuPersonalTrainer((PersonalTrainer) pessoa);
+			        } else if (pessoa instanceof Funcionario) {
+			            menuFuncionario((Funcionario) pessoa);
+			        }
+	                return;
+	            }
+	        }
+	        System.out.println("CPF ou senha incorretos. Tente novamente.");
+	    }
         private static void menuAluno(Aluno aluno) {
             boolean sair = false;
             while (!sair) {
@@ -123,13 +133,14 @@ public class SistemaAcademia {
                         System.out.println("CPF: " + aluno.getCpf());
                         System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
                         System.out.println("Contato: " + aluno.getContato() + "\n");
-//                        System.out.println("Plano Contratado: " + aluno.getNomePlano().getNomePlano());
-//                        System.out.println("Duração do Plano: " + aluno.getPlano().getDuracaoPlano() + " meses");
-//                        System.out.println("Valor do Plano: R$" + aluno.getPlano().getValorPlano());
-//                        System.out.println("Descrição do Plano: " + aluno.getPlano().getDescricaoPlano());
+                        System.out.println("Plano Contratado: " + aluno.getPlanoContratado().getNomePlano());
+                        System.out.println("Duração do Plano: " + aluno.getDuracaoPlano() + " meses");
+                        System.out.println("Valor do Plano: R$" + aluno.getPlanoContratado().getValorPlano());
+                        System.out.println("Descrição do Plano: " + aluno.getPlanoContratado().getDescricaoPlano());
                         break;
                     case 2:
                         //Solicitar agendamento de horário com personal trainer.
+                    	solicitarAgendamento();
                         break;
                     case 3:
                         //Visualizar histórico de agendamentos.
@@ -202,6 +213,25 @@ public class SistemaAcademia {
                 switch (opcao) {
                     case 1:
                         //Cadastrar novo plano
+                    	try {
+                			BufferedReader br = new BufferedReader(new FileReader("Planos.txt"));
+                			
+                			while(br.ready()) {
+                				String linha = br.readLine();
+                				String[] partes = linha.split(";");
+                				String nome = partes[0];
+                				double valor = Integer.parseInt(partes[1]);
+                				String descricao = partes[2];
+                				
+                				Plano plano = new Plano(nome, valor, descricao);
+                				planos.add(plano);
+                			}
+                			br.close();
+                		} catch (FileNotFoundException e) {
+                			System.out.println("Erro original: " + e.getMessage());
+                		} catch (IOException e) {
+                			System.out.println("Erro lendo o arquivo: " + e.getMessage());
+                		}
                         break;
                     case 2:
                         //Cadastrar novo aluno
@@ -218,7 +248,8 @@ public class SistemaAcademia {
                 				String contato = partes[3];
                 				String senha = partes[4];
                 				String tipoPlanoString = partes[5];
-                				LocalDate dataMatricula = LocalDate.parse(partes[6]);
+                				int duracaoPlano = Integer.parseInt(partes[6]);
+                				LocalDate dataMatricula = LocalDate.parse(partes[7]);
                 				
                 				if (tipoPlanoString.equals("planoBasico")) {
                 				    tipoPlano = new Plano("Básico", 74.90, "\nAcesso completo ao espaço da academia.\n"
@@ -257,9 +288,9 @@ public class SistemaAcademia {
                 				    System.out.println("Erro nas informações do arquivo. (Plano não encontrado)");
                 				    return;
                 				}
-                				Pessoa pessoa = new Aluno(nome, cpf, dataNascimento, contato, senha, tipoPlano, dataMatricula);
-                				pessoasRegistradas.add(pessoa);
-
+                				Aluno aluno = new Aluno(nome, cpf, dataNascimento, contato, senha, tipoPlano, duracaoPlano, dataMatricula);
+                				aluno.aplicarDesconto();
+                				pessoasRegistradas.add(aluno);
                 			}
                 			br.close();
                 		} catch (FileNotFoundException e) {
@@ -270,21 +301,96 @@ public class SistemaAcademia {
                         break;
                     case 3:
                         //Cadastrar novo Personal Trainer
+                    	try {
+                			BufferedReader br = new BufferedReader(new FileReader("Personal Trainers.txt"));
+                			
+                			while(br.ready()) {
+                				String linha = br.readLine();
+                				String[] partes = linha.split(";");
+                				String nome = partes[0];
+                				String cpf = partes[1];
+                				LocalDate dataNascimento = LocalDate.parse(partes[2]);
+                				String contato = partes[3];
+                				String senha = partes[4];
+                				String especialidadeString = partes[5];
+                				Especialidade especialidade = null;
+                				for (Especialidade esp : Especialidade.values()) {
+                				    if (esp.name().equalsIgnoreCase(especialidadeString)) {
+                				        especialidade = esp;
+                				        break;
+                				    }
+                				}
+                				String cref = partes[6];
+                				String horarioAtendimento = partes[7];
+                				
+                				PersonalTrainer personalTrainer = new PersonalTrainer(nome, cpf, dataNascimento, contato, senha, especialidade, cref, horarioAtendimento);
+                				pessoasRegistradas.add(personalTrainer);
+                				personalTrainers.add(personalTrainer);
+                			}
+                			br.close();
+                		} catch (FileNotFoundException e) {
+                			System.out.println("Erro original: " + e.getMessage());
+                		} catch (IOException e) {
+                			System.out.println("Erro lendo o arquivo: " + e.getMessage());
+                		}
                         break;
                     case 4:
                         //Emtir relatório de planos
+                    	System.out.println("### Relatório de Planos ###");
+                        for (Plano plano : planos) {
+                            System.out.println("Nome: " + plano.getNomePlano());
+                            System.out.println("Valor: R$" + plano.getValorPlano());
+                            System.out.println("Descrição: " + plano.getDescricaoPlano());
+                            System.out.println("===============================================");
+                        }                   
                         break;
                     case 5:
                         //Emitir relatório de alunos
+                    	for (Pessoa pessoa : pessoasRegistradas) {
+                    	    if (pessoa instanceof Aluno) {
+                    	        Aluno aluno = (Aluno) pessoa;
+                    	        System.out.println("Nome: " + aluno.getNome());
+                    	        System.out.println("CPF: " + aluno.getCpf());
+                    	        System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
+                    	        System.out.println("Contato: " + aluno.getContato());
+                    	        System.out.println("Plano: " + aluno.getPlanoContratado());
+                    	        System.out.println("Duração do plano: " + aluno.getDuracaoPlano() + " meses");
+                    	        System.out.println("Data de Matrícula: " + aluno.getDataMatricula());
+                    	        System.out.println("===============================================");
+                    	    }
+                    	}
                         break;
                     case 6:
                         //Emitir relatório de equipe (funcionários e personal trainers)
+                    	for (Pessoa pessoa : pessoasRegistradas) {
+                    	    if (pessoa instanceof Funcionario) {
+                    	        Funcionario funcionario1 = (Funcionario) pessoa;
+                    	        System.out.println("Nome: " + funcionario1.getNome());
+                    	        System.out.println("CPF: " + funcionario1.getCpf());
+                    	        System.out.println("Data de Nascimento: " + funcionario1.getDataNascimento());
+                    	        System.out.println("Contato: " + funcionario1.getContato());
+                    	        System.out.println("Cargo: " + funcionario1.getCargo());
+                    	        System.out.println("===============================================");
+                    	    }
+                    	}
+                    	for (Pessoa pessoa : pessoasRegistradas) {
+                    	    if (pessoa instanceof PersonalTrainer) {
+                    	        PersonalTrainer personalTrainer = (PersonalTrainer) pessoa;
+                    	        System.out.println("Nome: " + personalTrainer.getNome());
+                    	        System.out.println("CPF: " + personalTrainer.getCpf());
+                    	        System.out.println("Data de Nascimento: " + personalTrainer.getDataNascimento());
+                    	        System.out.println("Contato: " + personalTrainer.getContato());
+                    	        System.out.println("Especialidade: " + personalTrainer.getEspecialidade());
+                    	        System.out.println("CREF: " + personalTrainer.getCref());
+                    	        System.out.println("Horário de Atendimento: " + personalTrainer.getHorarioAtendimento());
+                    	        System.out.println("===============================================");
+                    	    }
+                    	}
                         break;
                     case 7:
                         //Emitir relação de avaliações físicas por período
                         break;
-                    case 8:
-                    	System.out.println(pessoasRegistradas);
+                    case 8:                    	
                     	sair = true;
                     	System.out.println("Finalizando o sistema...");
                         break;
@@ -311,6 +417,25 @@ public class SistemaAcademia {
                 System.out.println("Por favor, digite um número inteiro válido.");
             }
         }
-    
+	
+    }
+    //!!!!!!!!!!!!!!! Precisamos adicionar disponibilidade de horários !!!!!!!!!!!!!!!
+    private static void solicitarAgendamento() {
+        System.out.println("### Solicitar Agendamento com Personal Trainer ###");
+        System.out.println("Personal Trainers Disponíveis:");
+        for (int i = 0; i < personalTrainers.size(); i++) {
+            PersonalTrainer personalTrainer = personalTrainers.get(i);
+            System.out.println((i + 1) + ". " + personalTrainer.getNome() + " - " + personalTrainer.getEspecialidade());
+        }
+
+        int escolha;
+        do {
+            escolha = getIntInput("Escolha um personal trainer: ");
+        } while (escolha < 1 || escolha > personalTrainers.size());
+
+        PersonalTrainer personalTrainerEscolhido = personalTrainers.get(escolha - 1);
+        System.out.println("Você selecionou o personal trainer " + personalTrainerEscolhido.getNome() +
+                           " (" + personalTrainerEscolhido.getEspecialidade() + ").");
+
     }
 }

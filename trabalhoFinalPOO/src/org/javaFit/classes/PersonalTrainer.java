@@ -57,10 +57,11 @@ public class PersonalTrainer extends Pessoa {
 
 		@Override
 		public String toString() {
-			return String.format("""
+			return super.toString() + String.format("""
 					Especialidade: %s
 					CREF: %s
 					Hora de Atendimento: %s
+					
 					""", especialidade, cref, horarioAtendimento);
 					
 		}

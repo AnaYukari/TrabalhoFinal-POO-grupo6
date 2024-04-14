@@ -21,8 +21,9 @@ public class Funcionario extends Pessoa {
 
 	@Override
 	public String toString() {
-		return String.format("""
+		return super.toString() + String.format("""
 				Cargo: %s
+				
 				""", cargo);
 	}
 
