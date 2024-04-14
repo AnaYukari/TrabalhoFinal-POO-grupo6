@@ -5,13 +5,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import org.javaFit.classes.Plano;
 import org.javaFit.classes.Especialidade;
+import org.javaFit.classes.Agendamento;
 import org.javaFit.classes.Aluno;
+import org.javaFit.classes.AvaliacaoFisica;
 import org.javaFit.classes.Funcionario;
 import org.javaFit.classes.PersonalTrainer;
 import org.javaFit.classes.Pessoa;
@@ -21,6 +24,7 @@ public class SistemaAcademia {
     private static List<Pessoa> pessoasRegistradas = new ArrayList<>();
     private static List<Plano> planos = new ArrayList<>();
     private static List<PersonalTrainer> personalTrainers = new ArrayList<>();
+    static List<Agendamento> agendamentos = new ArrayList<>();
 
     public static void main(String[] args) {
     	
@@ -104,13 +108,16 @@ public class SistemaAcademia {
                         break;
                     case 2:
                         //Solicitar agendamento de horário com personal trainer.
-                    	solicitarAgendamento();
+                    	aluno.setPersonalTrainers(personalTrainers);
+                    	aluno.solicitarAgendamento();
                         break;
                     case 3:
                         //Visualizar histórico de agendamentos.
+                    	aluno.visualizarHistoricoAgendamentos();
                         break;
                     case 4:
                         //Cancelar agendamento.
+                    	aluno.selecionarAgendamento(agendamentos);
                         break;
                     case 5:
                         //Visualizar avaliações físicas.
@@ -140,12 +147,42 @@ public class SistemaAcademia {
                 switch (opcao) {
                     case 1:
                         //Visualizar agenda de atendimentos.
+                    	personalTrainer.visualizarAgendamentos();
                         break;
                     case 2:
                         //Registrar avaliações físicas dos alunos.
+                    	System.out.println("Registrar avaliação física do aluno:");
+                        String cpfAluno = getInput("CPF do aluno: ");
+                        Aluno alunoParaAvaliar = null;
+                        
+                        for (Pessoa pessoa : pessoasRegistradas) {
+                            if (pessoa instanceof Aluno && pessoa.getCpf().equals(cpfAluno)) {
+                                alunoParaAvaliar = (Aluno) pessoa;
+                                break;
+                            }
+                        }
+                        if (alunoParaAvaliar == null) {
+                            System.out.println("Aluno não encontrado. Verifique o CPF e tente novamente.");
+                            break;
+                        }
+                        System.out.println("\nAvaliação do(a) aluno(a) " + alunoParaAvaliar.getNome() + "\n");                        
+                        double peso = getDoubleInput("Peso (em kg): ");
+                        double altura = getDoubleInput("Altura (em metro): ");
+                        double imc = peso / (altura * altura);
+                        double percentualGordura = getDoubleInput("Percentual de gordura corporal (%): ");
+                        double massaMuscular = getDoubleInput("Massa muscular (em kg): ");
+                        String observacoes = getInput("Observações: ");
+                        LocalDate dataAvaliacao = LocalDate.now();
+                        
+                        AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica(peso, altura, imc, percentualGordura, massaMuscular, observacoes, dataAvaliacao);
+                        
+                        alunoParaAvaliar.setAvaliacaoFisica(avaliacaoFisica);
+                        
+                        System.out.println("Avaliação física registrada com sucesso para o(a) aluno(a) " + alunoParaAvaliar.getNome() + "!");
                         break;
                     case 3:
                         //Visualizar lista de avaliações realizadas.
+                    	visualizarAvaliacoesRealizadas();
                         break;
                     case 4:
                         sair = true;
@@ -361,23 +398,45 @@ public class SistemaAcademia {
         }
 	
     }
-    //!!!!!!!!!!!!!!! Precisamos adicionar disponibilidade de horários !!!!!!!!!!!!!!!
-    private static void solicitarAgendamento() {
-        System.out.println("### Solicitar Agendamento com Personal Trainer ###");
-        System.out.println("Personal Trainers Disponíveis:");
-        for (int i = 0; i < personalTrainers.size(); i++) {
-            PersonalTrainer personalTrainer = personalTrainers.get(i);
-            System.out.println((i + 1) + ". " + personalTrainer.getNome() + " - " + personalTrainer.getEspecialidade() + " - " + personalTrainer.getHorarioAtendimento());
+    //Método para receber entrada de número double do usuário
+    private static double getDoubleInput(String prompt) {
+        double input = 0.0;
+        boolean valid = false;
+
+        while (!valid) {
+            try {
+                System.out.print(prompt);
+                input = Double.parseDouble(scanner.nextLine());
+                valid = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, insira um número válido.");
+            }
         }
 
-        int escolha;
-        do {
-            escolha = getIntInput("Escolha um personal trainer: ");
-        } while (escolha < 1 || escolha > personalTrainers.size());
-
-        PersonalTrainer personalTrainerEscolhido = personalTrainers.get(escolha - 1);
-        System.out.println("Você selecionou o personal trainer " + personalTrainerEscolhido.getNome() +
-                           " (" + personalTrainerEscolhido.getEspecialidade() + ").");
-
+        return input;
+    }
+    
+    private static void visualizarAvaliacoesRealizadas() {
+        System.out.println("Lista de avaliações físicas realizadas:");
+        
+        for (Pessoa pessoa : pessoasRegistradas) {
+            if (pessoa instanceof Aluno) {
+                Aluno aluno = (Aluno) pessoa;
+                AvaliacaoFisica avaliacaoFisica = aluno.getAvaliacaoFisica();
+                
+                if (avaliacaoFisica != null) {
+                    System.out.println("\nAvaliação para o(a) aluno(a) " + aluno.getNome() + ":\n");
+                    System.out.println("Data: " + avaliacaoFisica.getDataAvaliacao());
+                    System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
+                    System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
+                    System.out.println("IMC: " + avaliacaoFisica.getImc());
+                    System.out.println("Percentual de Gordura Corporal: " + avaliacaoFisica.getPercentualGordura() + "%");
+                    System.out.println("Massa Muscular: " + avaliacaoFisica.getMassaMuscular() + " kg");
+                    System.out.println("Observações: " + avaliacaoFisica.getObservacoes());
+                } else {
+                    System.out.println("Nenhuma avaliação física registrada para o aluno " + aluno.getNome() + ".\n");
+                }
+            }
+        }
     }
 }

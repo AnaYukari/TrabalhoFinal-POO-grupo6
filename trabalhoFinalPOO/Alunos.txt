@@ -4,3 +4,4 @@ Eusébio;712.835.926-42;1985-09-07;eusebio@email.com;senha488;Familiar;15;2024-0
 Cecília;753.829.461-32;1985-09-28;cecilia@email.com;senha183;Premium;39;2024-04-13
 Madu;123.456.789-00;1999-06-19;123456789;senha123;Basico;7;2024-04-13
 Alexandre;728.765.446-86;1989-11-08;123456789;senha999;Premium;14;2024-04-13
+Romildo;721.659.478-25;2000-06-14;romildo@email.com;senha222;Familiar;5;2024-04-14

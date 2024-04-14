@@ -1,16 +1,28 @@
 package org.javaFit.classes;
 
+import java.time.LocalDate;
+
 public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
 	private double altura;
 	private double peso;
-	private String situacaoImc;
+	double imc;
+	double percentualGordura;
+	double massaMuscular;
+	String observacoes;
+	LocalDate dataAvaliacao;
 	
-	public AvaliacaoFisica(double altura, double peso) {
-		this.altura = altura;
-		this.peso = peso;
+	
+	public AvaliacaoFisica(double altura, double peso, double imc, double percentualGordura, double massaMuscular, String observacoes, LocalDate dataAvaliacao) {
+	    this.altura = altura;
+	    this.peso = peso;
+	    this.imc = peso / (altura * altura);
+	    this.percentualGordura = percentualGordura;
+	    this.massaMuscular = massaMuscular;
+	    this.observacoes = observacoes;
+	    this.dataAvaliacao = dataAvaliacao;
 	}
 	
-
+	
 
 	public double getAltura() {
 		return altura;
@@ -27,37 +39,82 @@ public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
-	 
-	public String calculaSituacao() {
-		double imc = peso / (altura*altura);
-		if (imc >= 40.0) {
-			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Obesidade Grau 3.", imc);
-		}else if(imc >= 35.0) {
-			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Obesidade Grau 2.", imc);
-		}else if(imc >= 30.0) {
-			situacaoImc = String.format("O IMC dessa pessoa é: %.2f -  Obesidade Grau 1.", imc);
-		}else if(imc >= 25.0) {
-			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Pré-obesidade.", imc);
-		}else if(imc >= 18.5) {
-			situacaoImc = String.format("O IMC dessa pessoa é: %.2f - Peso Normal.", imc);
-		}
-		return situacaoImc;
+
+	
+	public double getImc() {
+		return imc;
 	}
-	
-	
-	@Override
-	public String toString() {
-		return String.format("\nAltura: %.2fm\nPeso: %.2fkg\nIMC: %.2f\nSituação do Aluno: %s", altura, peso, peso / (altura*altura), calculaSituacao());
+
+
+
+	public void setImc(double imc) {
+		this.imc = imc;
+	}
+
+
+
+	public double getPercentualGordura() {
+		return percentualGordura;
+	}
+
+
+
+	public void setPercentualGordura(double percentualGordura) {
+		this.percentualGordura = percentualGordura;
+	}
+
+
+
+	public double getMassaMuscular() {
+		return massaMuscular;
+	}
+
+
+
+	public void setMassaMuscular(double massaMuscular) {
+		this.massaMuscular = massaMuscular;
+	}
+
+
+
+	public String getObservacoes() {
+		return observacoes;
+	}
+
+
+
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 
 	
+
+	public LocalDate getDataAvaliacao() {
+		return dataAvaliacao;
+	}
+
+
+
+	public void setDataAvaliacao(LocalDate dataAvaliacao) {
+		this.dataAvaliacao = dataAvaliacao;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Avaliacao Física\n\nAltura: " + altura + " m\nPeso: " + peso + "kg\nIMC: " + imc
+				+ "Percentual de Gordura: " + percentualGordura + "Massa Muscular: " + massaMuscular + "Observaçõe: "
+				+ observacoes + "Data de Avaliação: " + dataAvaliacao;
+	}
+
+
+
 	@Override
 	public void AdicionaAvaliacao(Aluno aluno, double peso, double altura) {
-		setPeso(peso);
-		setAltura(altura);
-	
 		
 	}
-	
-	
+
+
+
 }
