@@ -114,7 +114,6 @@ public class Aluno extends Pessoa {
 	        	 String dataString1 = scanner.next();
 
 	            try {
-	                LocalDate hora = LocalDate.parse(dataString1);
 	                dataAgendamento = LocalDate.parse(dataString1);
 	                break;
 	                
@@ -128,7 +127,6 @@ public class Aluno extends Pessoa {
 	        	  String horaString1 = scanner.next();
 
 	            try {
-	                LocalTime hora = LocalTime.parse(horaString1);
 	                horaAgendamento = LocalTime.parse(horaString1);
 	                break;
 	                
