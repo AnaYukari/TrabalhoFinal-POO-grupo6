@@ -117,11 +117,10 @@ public class SistemaAcademia {
                         break;
                     case 4:
                         //Cancelar agendamento.
-                    	aluno.selecionarAgendamento(agendamentos);
+                    	aluno.cancelarAgendamento();
                         break;
                     case 5:
-                        //Visualizar avaliações físicas.
-                        break;
+                    	break;
                     case 6:
                     	System.out.println("Log off...\n");
                     	sair = true;

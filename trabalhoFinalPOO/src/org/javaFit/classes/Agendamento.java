@@ -53,7 +53,7 @@ public class Agendamento {
 					Nome personal trainer: %s
 					Data do agendamento: %s
 					Hora do agendamento: %s
-					""", aluno, personalTrainer, dataAgendamento, horaAgendamento);
+					""", aluno.getNome(), personalTrainer.getNome(), dataAgendamento, horaAgendamento);
 				
 	}
 	
