@@ -124,6 +124,7 @@ public class Aluno extends Pessoa {
 	    public void visualizarHistoricoAgendamentos() {
 	        if (agendamentos.isEmpty()) {
 	            System.out.println("Nenhum agendamento encontrado.");
+	            return;
 	        } else {
 	            System.out.println("Histórico de Agendamentos:");
 	            for (Agendamento agendamento : agendamentos) {
@@ -134,7 +135,7 @@ public class Aluno extends Pessoa {
 	    
 	    //!!!!!!!! Método não está 100% eficaz !!!!!!!!!!!
 	    //Método para selecionar e cancelar agendamento
-	    public void selecionarAgendamento(List<Agendamento> agendamentos) {
+	    public void selecionarAgendamento(){
 	        if (agendamentos.isEmpty()) {
 	            System.out.println("Não há agendamentos disponíveis.");
 	            return;

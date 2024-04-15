@@ -117,7 +117,7 @@ public class SistemaAcademia {
                         break;
                     case 4:
                         //Cancelar agendamento.
-                    	aluno.selecionarAgendamento(agendamentos);
+                    	aluno.selecionarAgendamento();
                         break;
                     case 5:
                     	break;
