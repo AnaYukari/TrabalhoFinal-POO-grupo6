@@ -120,8 +120,7 @@ public class SistemaAcademia {
                     	aluno.selecionarAgendamento(agendamentos);
                         break;
                     case 5:
-                        //Visualizar avaliações físicas.
-                        break;
+                    	break;
                     case 6:
                     	System.out.println("Log off...\n");
                     	sair = true;
