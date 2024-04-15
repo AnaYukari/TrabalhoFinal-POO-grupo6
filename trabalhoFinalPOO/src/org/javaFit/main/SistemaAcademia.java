@@ -40,7 +40,7 @@ public class SistemaAcademia {
 		//início do programa
         boolean sair = false;
         while (!sair) {
-            System.out.println("Academia Serratec!\n");
+            System.out.println("Academia JavaFit!\n");
             System.out.println("1. Fazer login.");
             System.out.println("2. Sair.\n");
 
@@ -131,7 +131,7 @@ public class SistemaAcademia {
             }
     }
 
-    // Método para login de personal trainer
+    //Método para login de personal trainer
     private static void menuPersonalTrainer(PersonalTrainer personalTrainer) {
             boolean sair = false;
             while (!sair) {
@@ -199,9 +199,9 @@ public class SistemaAcademia {
             boolean sair = false;
             while (!sair) {
                 System.out.println("\n### Menu do Funcionário ###\n");
-                System.out.println("1. Cadastrar novo plano a partir de um arquivo de texto externo");
-                System.out.println("2. Cadastrar novo aluno a partir de um arquivo de texto externo");
-                System.out.println("3. Cadastrar novo Personal Trainer a partir de um arquivo de texto externo");
+                System.out.println("1. Cadastrar novos planos a partir de um arquivo de texto externo");
+                System.out.println("2. Cadastrar novos alunos a partir de um arquivo de texto externo");
+                System.out.println("3. Cadastrar novos Personal Trainers a partir de um arquivo de texto externo");
                 System.out.println("4. Emitir relatório de planos");
                 System.out.println("5. Emitir relatório de alunos");
                 System.out.println("6. Emitir relatório de equipe (funcionários e personal trainers)");
