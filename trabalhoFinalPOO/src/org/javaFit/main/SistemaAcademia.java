@@ -29,7 +29,7 @@ public class SistemaAcademia {
     public static void main(String[] args) {
     	
     	//inclusão de funcionários iniciais do sistema
-        Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(1998, 04, 15), "yukari@sushi.com", "senha789", "Gerente");
+        Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(2005, 05, 17), "yukari@sushi.com", "senha789", "Gerente");
         Funcionario funcionario2 = new Funcionario("Victor", "161.015.727-30", LocalDate.of(1992, 05, 15), "999124405", "senha777", "Atendente");
         Funcionario funcionario3 = new Funcionario("Jacqueline", "275.655.478-96", LocalDate.of(1997, 06, 16), "jacqueline@serratec.com", "senha555", "Presidente da Empresa");
 
@@ -40,7 +40,7 @@ public class SistemaAcademia {
 		//início do programa
         boolean sair = false;
         while (!sair) {
-            System.out.println("Academia Serratec!\n");
+            System.out.println("Academia JavaFit!\n");
             System.out.println("1. Fazer login.");
             System.out.println("2. Sair.\n");
 
@@ -132,7 +132,7 @@ public class SistemaAcademia {
             }
     }
 
-    // Método para login de personal trainer
+    //Método para login de personal trainer
     private static void menuPersonalTrainer(PersonalTrainer personalTrainer) {
             boolean sair = false;
             while (!sair) {
