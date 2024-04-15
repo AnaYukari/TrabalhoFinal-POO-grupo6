@@ -327,7 +327,7 @@ public class SistemaAcademia {
                         }
                         
                 		try {
-                			BufferedWriter bw = new BufferedWriter(new FileWriter("RelatorioPlanos.txt"));
+                			BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório dos Planos.txt"));
                 			for (Plano p : planos) {                				                				
                 				bw.append("Plano: " + p.getNomePlano());
                 				bw.append("\nValor: R$" + p.getValorPlano());
@@ -361,7 +361,7 @@ public class SistemaAcademia {
                     	    }
                     	}         	
                 		try {
-                			BufferedWriter bw = new BufferedWriter(new FileWriter("RelatorioAlunos.txt"));
+                			BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório dos Alunos.txt"));
                         	for (Pessoa pessoa : pessoasRegistradas) {
                         	    if (pessoa instanceof Aluno) {                     
                         	        Aluno aluno = (Aluno) pessoa;
@@ -414,7 +414,7 @@ public class SistemaAcademia {
                     	}
                     	    
                 		try {
-                			BufferedWriter bw = new BufferedWriter(new FileWriter("RelatorioEquipe.txt"));
+                			BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório da Equipe.txt"));
                 			bw.append("## Funcionários ##\n\n");
                 			
                         	for (Pessoa pessoa : pessoasRegistradas) {
