@@ -56,7 +56,7 @@ public class PersonalTrainer extends Pessoa {
 	}
 
 	//Método para visualizar agendamentos
-	public void visualizarAgendamentos() {
+	public void visualizarAgendamentos(PersonalTrainer pTrainer, List<Agendamento> agendamentos) {
 	    System.out.println("Agendamentos realizados com você:");
 	    boolean encontrouAgendamentos = false;
 	    

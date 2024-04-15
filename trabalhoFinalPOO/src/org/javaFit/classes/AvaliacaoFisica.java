@@ -2,7 +2,7 @@ package org.javaFit.classes;
 
 import java.time.LocalDate;
 
-public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
+public class AvaliacaoFisica   {
 	private double altura;
 	private double peso;
 	double imc;
@@ -11,18 +11,18 @@ public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
 	String observacoes;
 	LocalDate dataAvaliacao;
 	
-	
+
 	public AvaliacaoFisica(double altura, double peso, double imc, double percentualGordura, double massaMuscular, String observacoes, LocalDate dataAvaliacao) {
-	    this.altura = altura;
-	    this.peso = peso;
-	    this.imc = peso / (altura * altura);
-	    this.percentualGordura = percentualGordura;
-	    this.massaMuscular = massaMuscular;
-	    this.observacoes = observacoes;
-	    this.dataAvaliacao = dataAvaliacao;
+	
+		this.altura = altura;
+		this.peso = peso;
+		this.imc = peso / (altura * altura);
+		this.percentualGordura = percentualGordura;
+		this.massaMuscular = massaMuscular;
+		this.observacoes = observacoes;
+		this.dataAvaliacao = dataAvaliacao;
 	}
-	
-	
+
 
 	public double getAltura() {
 		return altura;
@@ -105,15 +105,12 @@ public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
 	public String toString() {
 		return "Avaliacao Física\n\nAltura: " + altura + " m\nPeso: " + peso + "kg\nIMC: " + imc
 				+ "Percentual de Gordura: " + percentualGordura + "Massa Muscular: " + massaMuscular + "Observaçõe: "
-				+ observacoes + "Data de Avaliação: " + dataAvaliacao;
+				+ observacoes;
 	}
 
 
 
-	@Override
-	public void AdicionaAvaliacao(Aluno aluno, double peso, double altura) {
-		
-	}
+	
 
 
 

@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.javaFit.main.SistemaAcademia;
+
 //subclasse de Pessoa
 public class Aluno extends Pessoa {
 	private Plano planoContratado;
 	private LocalDate dataMatricula;
 	private AvaliacaoFisica avaliacaoFisica;
 	private List<Avaliacao> avaliacoes;
-	private List<Agendamento> agendamentos;
+	protected List<Agendamento> agendamentos;
 	private int duracaoPlano;
 	private List<PersonalTrainer> personalTrainers;
 
@@ -88,7 +90,7 @@ public class Aluno extends Pessoa {
 				""", nome, cpf, dataNascimento, contato, planoContratado, dataMatricula);
 	}
 	   //Método para solicitar agendamento
-	   public void solicitarAgendamento() {
+	   public Agendamento solicitarAgendamento() {
 	        Scanner scanner = new Scanner(System.in);
 
 	        System.out.println("Lista de Personal Trainers Disponíveis:");
@@ -99,9 +101,9 @@ public class Aluno extends Pessoa {
 	        System.out.print("Escolha o número correspondente ao Personal Trainer desejado: ");
 	        int escolhaPersonalTrainer = scanner.nextInt();
 
-	        if (escolhaPersonalTrainer < 1 || escolhaPersonalTrainer > personalTrainers.size()) {
+	       while (escolhaPersonalTrainer < 1 || escolhaPersonalTrainer > personalTrainers.size()) {
 	            System.out.println("Escolha inválida. Por favor, tente novamente.");            
-	            return;	        
+	            	        
 	        }
 
 	        PersonalTrainer personalTrainerEscolhido = personalTrainers.get(escolhaPersonalTrainer - 1);
@@ -139,6 +141,7 @@ public class Aluno extends Pessoa {
 	        agendamentos.add(novoAgendamento);
 
 	        System.out.println("Agendamento realizado com sucesso!");
+	        return novoAgendamento;
 	   }
 	
 	
@@ -155,7 +158,7 @@ public class Aluno extends Pessoa {
 	        }
 	    }
 	    
-	  //Esse metodo ta funcionando, mas não faz sentido, tenho q explicar meu ponto de vista - yuyuka//
+	
 	    //Método para selecionar e cancelar agendamento
 	    public void cancelarAgendamento(){
 	        if (agendamentos.isEmpty()) {

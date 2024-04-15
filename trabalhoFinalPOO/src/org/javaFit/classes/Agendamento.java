@@ -10,6 +10,7 @@ public class Agendamento {
 	private LocalTime horaAgendamento;
 	private Aluno aluno;
 	private PersonalTrainer personalTrainer;
+	private Avaliacao avaliacao;
 	
 	public Agendamento(Aluno aluno, PersonalTrainer personalTrainer, LocalDate dataAgendamento,LocalTime horaAgendamento) {
 		this.aluno = aluno;
@@ -45,6 +46,16 @@ public class Agendamento {
 	public Aluno getAluno() {
 		return aluno;
 	}
+	
+
+	public Avaliacao getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(Avaliacao avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+	
 
 	@Override
 	public String toString() {

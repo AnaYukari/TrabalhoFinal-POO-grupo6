@@ -34,6 +34,7 @@ public class SistemaAcademia {
         Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(2005, 05, 17), "yukari@sushi.com", "senha789", "Gerente");
         Funcionario funcionario2 = new Funcionario("Victor", "161.015.727-30", LocalDate.of(1992, 05, 15), "999124405", "senha777", "Atendente");
         Funcionario funcionario3 = new Funcionario("Jacqueline", "275.655.478-96", LocalDate.of(1997, 06, 16), "jacqueline@serratec.com", "senha555", "Presidente da Empresa");
+        Aluno alunoMetodos = new Aluno(null, null, null, null, null, null, 0, null);
 
         pessoasRegistradas.add(funcionario1);
         pessoasRegistradas.add(funcionario2);
@@ -112,7 +113,8 @@ public class SistemaAcademia {
                     case 2:
                         //Solicitar agendamento de horário com personal trainer.
                     	aluno.setPersonalTrainers(personalTrainers);
-                    	aluno.solicitarAgendamento();
+                    	agendamentos.add(aluno.solicitarAgendamento());
+                    	
                         break;
                     case 3:
                         //Visualizar histórico de agendamentos.
@@ -149,7 +151,7 @@ public class SistemaAcademia {
                 switch (opcao) {
                     case 1:
                         //Visualizar agenda de atendimentos.
-                    	personalTrainer.visualizarAgendamentos();
+                    	personalTrainer.visualizarAgendamentos(personalTrainer, agendamentos);
                         break;
                     case 2:
                         //Registrar avaliações físicas dos alunos.
