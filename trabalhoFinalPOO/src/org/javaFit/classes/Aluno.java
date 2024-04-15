@@ -2,6 +2,7 @@ package org.javaFit.classes;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -104,15 +105,36 @@ public class Aluno extends Pessoa {
 	        }
 
 	        PersonalTrainer personalTrainerEscolhido = personalTrainers.get(escolhaPersonalTrainer - 1);
+	        LocalDate dataAgendamento;
+	        LocalTime horaAgendamento;
 
-	        System.out.print("Digite a data do agendamento (AAAA-MM-DD): ");
-	        String dataString = scanner.next();
-	        LocalDate dataAgendamento = LocalDate.parse(dataString);
+	        
+	        while (true) {
+	        	 System.out.print("Digite a data do agendamento (AAAA-MM-DD): ");	       
+	        	 String dataString1 = scanner.next();
 
-	        System.out.print("Digite a hora do agendamento (HH:MM): ");
-	        String horaString = scanner.next();
-	        LocalTime horaAgendamento = LocalTime.parse(horaString);
+	            try {
+	                dataAgendamento = LocalDate.parse(dataString1);
+	                break;
+	                
+	            } catch (DateTimeParseException e) {
+	                System.out.println("Formato de data inválido. Tente novamente.");
+	            }
+	        }
+        
+	        while (true) {
+	        	  System.out.print("Digite a hora do agendamento (HH:MM): ");
+	        	  String horaString1 = scanner.next();
 
+	            try {
+	                horaAgendamento = LocalTime.parse(horaString1);
+	                break;
+	                
+	            } catch (DateTimeParseException e) {
+	                System.out.println("Formato de hora inválido. Tente novamente.");
+	            }
+	        }
+	        
 	        Agendamento novoAgendamento = new Agendamento(this, personalTrainerEscolhido, dataAgendamento, horaAgendamento);
 	        agendamentos.add(novoAgendamento);
 
@@ -144,10 +166,11 @@ public class Aluno extends Pessoa {
 	        System.out.println("Seus agendamentos:");
 
 	        for (int i = 0; i < agendamentos.size(); i++) {
-	            Agendamento agendamento = agendamentos.get(i);
-	            System.out.println((i + 1) + ". Data: " + agendamento.getDataAgendamento() +
-	                               ", Hora: " + agendamento.getHoraAgendamento() +
-	                               ", Personal Trainer: " + agendamento.getPersonalTrainer().getNome());
+	        		if((agendamentos.get(i).getDataAgendamento()).isAfter(LocalDate.now())) {
+	        			Agendamento agendamento = agendamentos.get(i);
+	        			System.out.println((i + 1) + ". Data: " + agendamento.getDataAgendamento() +
+	        										", Hora: " + agendamento.getHoraAgendamento() +
+	        										", Personal Trainer: " + agendamento.getPersonalTrainer().getNome());
 	        }
 
 	        int escolha = getIntInput("Escolha o número do agendamento que deseja cancelar (0 para sair): ");
@@ -169,6 +192,7 @@ public class Aluno extends Pessoa {
 
 	        agendamentos.remove(agendamentoSelecionado);
 	        System.out.println("Agendamento cancelado com sucesso.");
+	    }
 	    }
 
 	    // Método para entrada de inteiros
