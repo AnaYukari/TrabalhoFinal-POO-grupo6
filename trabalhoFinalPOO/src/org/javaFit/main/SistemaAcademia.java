@@ -120,7 +120,7 @@ public class SistemaAcademia {
                         break;
                     case 4:
                         //Cancelar agendamento.
-                    	aluno.cancelarAgendamento();
+                    	//aluno.cancelarAgendamento();
                         break;
                     case 5:
                     	break;
@@ -323,6 +323,7 @@ public class SistemaAcademia {
                             System.out.println("Valor: R$" + plano.getValorPlano());
                             System.out.println("Descrição: " + plano.getDescricaoPlano());
                             System.out.println("===============================================");
+<<<<<<< HEAD
                         } 
                         try (BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório de Planos.txt"))) {
                             for (Plano plano : planos) {
@@ -336,6 +337,30 @@ public class SistemaAcademia {
                         }
                         System.out.println("Relatório de planos gerado com sucesso!");
                         break;
+=======
+                        }
+                        
+                		try {
+                			BufferedWriter bw = new BufferedWriter(new FileWriter("RelatorioPlanos.txt"));
+                			for (Plano p : planos) {                				                				
+                				bw.append("Plano: " + p.getNomePlano());
+                				bw.append("\nValor: R$" + p.getValorPlano());
+                				bw.append("\nDescrição: " + p.getDescricaoPlano());
+                				bw.append("\n===============================================\n");				
+                			}
+                			
+                    	System.out.println("Relatório de planos em arquivo .txt gerado com sucesso.");
+                			
+                		bw.flush();
+                		bw.close();
+                		
+                		} catch (IOException e) {
+                			System.out.println("Erro ao gravar o arquivo." + e.getMessage());
+                		}
+                        
+                        break;                                                
+                        
+>>>>>>> 70b635536061d41338b923088a0441039bce1fe8
                     case 5:
                         //Emitir relatório de alunos
                     	for (Pessoa pessoa : pessoasRegistradas) {
@@ -351,6 +376,7 @@ public class SistemaAcademia {
                     	        System.out.println("===============================================");
                     	    }
                     	}
+<<<<<<< HEAD
                     	try (BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório de Alunos.txt"))) {
                             for (Pessoa pessoa : pessoasRegistradas) {
                                 if (pessoa instanceof Aluno) {
@@ -369,6 +395,33 @@ public class SistemaAcademia {
                         } catch (IOException e) {
                             System.err.println("Erro ao escrever o relatório de alunos: " + e.getMessage());
                         }
+=======
+                    	
+                		try {
+                			BufferedWriter bw = new BufferedWriter(new FileWriter("RelatorioAlunos.txt"));
+                        	for (Pessoa pessoa : pessoasRegistradas) {
+                        	    if (pessoa instanceof Aluno) {                     
+                        	        Aluno aluno = (Aluno) pessoa;
+                        	        bw.append("Nome: " + aluno.getNome());
+                        	        bw.append("\nCPF: " + aluno.getCpf());
+                        	        bw.append("\nData de Nascimento: " + aluno.getDataNascimento());
+                        	        bw.append("\nContato: " + aluno.getContato());
+                        	        bw.append("\nPlano: " + aluno.getPlanoContratado());
+                        	        bw.append("\nDuração do plano: " + aluno.getDuracaoPlano() + " meses");
+                        	        bw.append("\nData de Matrícula: " + aluno.getDataMatricula());
+                        	        bw.append("\n===============================================\n");
+                        	    }
+                       	    }
+                    			
+                        	System.out.println("Relatório de alunos em arquivo .txt gerado com sucesso.");
+                    			
+                    		bw.flush();
+                    		bw.close();
+                    		
+                    		} catch (IOException e) {
+                    			System.out.println("Erro ao gravar o arquivo." + e.getMessage());
+                    		}                       	    
+>>>>>>> 70b635536061d41338b923088a0441039bce1fe8
                         break;
                     case 6:
                         //Emitir relatório de equipe (funcionários e personal trainers)
@@ -383,6 +436,7 @@ public class SistemaAcademia {
                     	        System.out.println("===============================================");
                     	    }
                     	}
+                    	
                     	for (Pessoa pessoa : pessoasRegistradas) {
                     	    if (pessoa instanceof PersonalTrainer) {
                     	        PersonalTrainer personalTrainer = (PersonalTrainer) pessoa;
@@ -396,6 +450,7 @@ public class SistemaAcademia {
                     	        System.out.println("===============================================");
                     	    }
                     	}
+<<<<<<< HEAD
                     	try (BufferedWriter bw = new BufferedWriter(new FileWriter("Relatórios de Equipe.txt"))) {
                             //Escrever dados dos funcionários
                     		bw.append("### Funcionários ###\n\n");
@@ -431,6 +486,50 @@ public class SistemaAcademia {
                         } catch (IOException e) {
                             System.err.println("Erro ao escrever o relatório de equipe: " + e.getMessage());
                         }
+=======
+                    	    
+                		try {
+                			BufferedWriter bw = new BufferedWriter(new FileWriter("RelatorioEquipe.txt"));
+                			bw.append("## Funcionários ##\n\n");
+                			
+                        	for (Pessoa pessoa : pessoasRegistradas) {
+                        	    if (pessoa instanceof Funcionario) {
+                        	        Funcionario funcionario1 = (Funcionario) pessoa;
+                        	        bw.append("Nome: " + funcionario1.getNome());
+                        	        bw.append("\nCPF: " + funcionario1.getCpf());
+                        	        bw.append("\nData de Nascimento: " + funcionario1.getDataNascimento());
+                        	        bw.append("\nContato: " + funcionario1.getContato());
+                        	        bw.append("\nCargo: " + funcionario1.getCargo());
+                        	        bw.append("\n===============================================\n");
+                        	    }
+                        	}
+                        	
+                			bw.append("\n## Personal Trainers ##\n\n");                        	
+                        	
+                        	for (Pessoa pessoa : pessoasRegistradas) {
+                        	    if (pessoa instanceof PersonalTrainer) {
+                        	        PersonalTrainer personalTrainer = (PersonalTrainer) pessoa;
+                        	        bw.append("Nome: " + personalTrainer.getNome());
+                        	        bw.append("\nCPF: " + personalTrainer.getCpf());
+                        	        bw.append("\nData de Nascimento: " + personalTrainer.getDataNascimento());
+                        	        bw.append("\nContato: " + personalTrainer.getContato());
+                        	        bw.append("\nEspecialidade: " + personalTrainer.getEspecialidade());
+                        	        bw.append("\nCREF: " + personalTrainer.getCref());
+                        	        bw.append("\nHorário de Atendimento: " + personalTrainer.getHorarioAtendimento());
+                        	        bw.append("\n===============================================\n");
+                        	    }
+                        	}
+                       	                       			
+                        	System.out.println("Relatório de equipe em arquivo .txt gerado com sucesso.");
+                    			
+                    		bw.flush();
+                    		bw.close();
+                    		
+                    		} catch (IOException e) {
+                    			System.out.println("Erro ao gravar o arquivo." + e.getMessage());
+                    		}
+                    	                        	
+>>>>>>> 70b635536061d41338b923088a0441039bce1fe8
                         break;
                     case 7:
                         //Emitir relação de avaliações físicas por período
