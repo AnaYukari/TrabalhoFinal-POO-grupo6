@@ -14,7 +14,6 @@ public class Agendamento {
 	private LocalTime horaAgendamento;
 	private Aluno aluno;
 	private PersonalTrainer personalTrainer;
-	private Avaliacao avaliacao;
 	private static List<PersonalTrainer> personalTrainers;
 	protected static List<Agendamento> agendamentos = new ArrayList<>();
 	
@@ -51,16 +50,7 @@ public class Agendamento {
 
 	public Aluno getAluno() {
 		return aluno;
-	}
-	
-
-	public Avaliacao getAvaliacao() {
-		return avaliacao;
-	}
-
-	public void setAvaliacao(Avaliacao avaliacao) {
-		this.avaliacao = avaliacao;
-	}
+	}	
 	
 	public static List<PersonalTrainer> getPersonalTrainers() {
 		return personalTrainers;
@@ -119,13 +109,24 @@ public class Agendamento {
 	        }
      
 	        while (true) {
-	        	  System.out.print("Digite a hora do agendamento (HH:MM): ");
-	        	  String horaString1 = scanner.next();
-
+	            System.out.print("Digite a hora do agendamento (HH:MM): ");
+	            String horaString = scanner.next();
+	            
 	            try {
-	                horaAgendamento = LocalTime.parse(horaString1);
-	                break;
+	                LocalTime horaInput = LocalTime.parse(horaString);
 	                
+	                // Extrair os horários de início e fim do horário de atendimento
+	                String[] partesHorario = personalTrainerEscolhido.getHorarioAtendimento().split(" às ");
+	                LocalTime inicioAtendimento = LocalTime.parse(partesHorario[0]);
+	                LocalTime fimAtendimento = LocalTime.parse(partesHorario[1]);
+
+	                if (horaInput.isBefore(inicioAtendimento) || horaInput.isAfter(fimAtendimento)) {
+	                    System.out.println("Horário fora do intervalo de atendimento. Por favor, escolha um horário entre "
+	                            + inicioAtendimento + " e " + fimAtendimento + ".");
+	                } else {
+	                    horaAgendamento = horaInput;
+	                    break;
+	                }
 	            } catch (DateTimeParseException e) {
 	                System.out.println("Formato de hora inválido. Tente novamente.");
 	            }
@@ -134,6 +135,7 @@ public class Agendamento {
 	        agendamentos.add(new Agendamento(aluno, personalTrainerEscolhido, dataAgendamento, horaAgendamento));
 
 	        System.out.println("Agendamento realizado com sucesso!");
+	        scanner.close();
 	   }
 	   
 	//Método para visualizar histórico de agendamentos
@@ -203,6 +205,7 @@ public class Agendamento {
 	            scanner.next();
 	        }
 	        return scanner.nextInt();
+	   
 	    }
 	    
 	    

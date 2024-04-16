@@ -1,7 +1,6 @@
 package org.javaFit.classes;
 
 import java.time.LocalDate;
-import java.util.List;
 
 //subclasse de Pessoa
 public class PersonalTrainer extends Pessoa {

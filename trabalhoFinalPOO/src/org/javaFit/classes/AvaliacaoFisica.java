@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.javaFit.main.SistemaAcademia;
-
 public class AvaliacaoFisica   {
 	private Aluno aluno;
     private LocalDate data;
@@ -160,7 +158,7 @@ public class AvaliacaoFisica   {
 
 
 	public void setHistoricoAvaliacao(List<AvaliacaoFisica> historicoAvaliacao) {
-		this.historicoAvaliacao = historicoAvaliacao;
+		AvaliacaoFisica.historicoAvaliacao = historicoAvaliacao;
 	}
 
 
@@ -182,15 +180,62 @@ public class AvaliacaoFisica   {
     String observacoes = getInput("Observações: ");
     LocalDate dataAvaliacao = LocalDate.now();
     
-    AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica(alunoParaAvaliar, dataAvaliacao, ptrainer, massaMuscular, massaMuscular, massaMuscular, massaMuscular, massaMuscular, observacoes);
-    
+    AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica(alunoParaAvaliar, dataAvaliacao, ptrainer, altura, peso, imc, percentualGordura, massaMuscular, observacoes);    
+   
     alunoParaAvaliar.setAvaliacaoFisica(avaliacaoFisica);
     historicoAvaliacao.add(avaliacaoFisica);
     System.out.println("Avaliação física registrada com sucesso para o(a) aluno(a) " + alunoParaAvaliar.getNome() + "!");
 	
 
 	}
-
+	
+    public static void visualizarAvaliacoesRealizadasAluno(Aluno aluno) {
+        System.out.println("Lista de avaliações físicas realizadas:\n");
+        
+        boolean avaliacoesEncontradas = false;
+     
+        for (AvaliacaoFisica avaliacaoFisica : historicoAvaliacao) {
+			if(avaliacaoFisica.getAluno() == aluno) {
+				avaliacoesEncontradas = true;
+                System.out.println("Data: " + avaliacaoFisica.getData());
+                System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
+                System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
+                System.out.printf("IMC: %.2f " , avaliacaoFisica.getImc(),"\n");
+                System.out.println("Percentual de Gordura Corporal: " + avaliacaoFisica.getPercentualGordura() + "%");
+                System.out.println("Massa Muscular: " + avaliacaoFisica.getMassaMuscular() + " kg");
+                System.out.println("Observações: " + avaliacaoFisica.getObservacoes());
+                System.out.println("===============================================\n");
+			}                           
+        }  
+        if (!avaliacoesEncontradas) {
+            System.out.println("Nenhuma avaliação física registrada para o(a) aluno(a) " + aluno.getNome() + "."); 
+        }
+    }
+    
+    public static void visualizarAvaliacoesRealizadasPersonalTrainer(PersonalTrainer ptrainer) {
+        System.out.println("Lista de avaliações físicas registradas por: " + ptrainer + "\n");
+        
+        boolean avaliacoesEncontradas = false;
+     
+        for (AvaliacaoFisica avaliacaoFisica : historicoAvaliacao) {
+			if(avaliacaoFisica.getPersonalTrainer() == ptrainer) {
+				avaliacoesEncontradas = true;
+                System.out.println("Data: " + avaliacaoFisica.getData());
+                System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
+                System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
+                System.out.printf("IMC: %.2f " , avaliacaoFisica.getImc(),"\n");
+                System.out.println("Percentual de Gordura Corporal: " + avaliacaoFisica.getPercentualGordura() + "%");
+                System.out.println("Massa Muscular: " + avaliacaoFisica.getMassaMuscular() + " kg");
+                System.out.println("Observações: " + avaliacaoFisica.getObservacoes());
+                System.out.println("===============================================\n");
+			}                           
+        }  
+        if (!avaliacoesEncontradas) {
+            System.out.println("Você ainda não registrou nenhuma avaliação."); 
+        }
+    }
+    
+ 
 
 	private static String getInput(String prompt) {
 		 System.out.print(prompt);
