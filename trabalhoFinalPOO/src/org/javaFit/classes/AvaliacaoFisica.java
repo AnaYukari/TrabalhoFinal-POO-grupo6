@@ -152,7 +152,7 @@ public class AvaliacaoFisica   {
 	}
 
 
-	public List<AvaliacaoFisica> getHistoricoAvaliacao() {
+	public static List<AvaliacaoFisica> getHistoricoAvaliacao() {
 		return historicoAvaliacao;
 	}
 

@@ -6,19 +6,23 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
-import org.javaFit.classes.Plano;
-import org.javaFit.classes.Especialidade;
 import org.javaFit.classes.Agendamento;
 import org.javaFit.classes.Aluno;
 import org.javaFit.classes.AvaliacaoFisica;
+import org.javaFit.classes.Especialidade;
 import org.javaFit.classes.Funcionario;
 import org.javaFit.classes.PersonalTrainer;
 import org.javaFit.classes.Pessoa;
+import org.javaFit.classes.Plano;
 
 public class SistemaAcademia {
     private static Scanner scanner = new Scanner(System.in);
@@ -370,6 +374,9 @@ public class SistemaAcademia {
                         break;
                     case 6:
                         //Emitir relatório de equipe (funcionários e personal trainers)
+                    	
+                    	System.out.println("\n## Funcionários ##\n");
+                    	
                     	for (Pessoa pessoa : pessoasRegistradas) {
                     	    if (pessoa instanceof Funcionario) {
                     	        Funcionario funcionario1 = (Funcionario) pessoa;
@@ -381,6 +388,8 @@ public class SistemaAcademia {
                     	        System.out.println("===============================================");
                     	    }
                     	}
+                    	
+                    	System.out.println("\n## Personal Trainers ##\n");
                     	
                     	for (Pessoa pessoa : pessoasRegistradas) {
                     	    if (pessoa instanceof PersonalTrainer) {
@@ -428,7 +437,7 @@ public class SistemaAcademia {
                         	    }
                         	}
                        	                       			
-                        	System.out.println("Relatório de equipe em arquivo .txt gerado com sucesso.");
+                        	System.out.println("\nRelatório de equipe em arquivo .txt gerado com sucesso.");
                     			
                     		bw.flush();
                     		bw.close();
@@ -439,7 +448,45 @@ public class SistemaAcademia {
                         break;
                     case 7:
                         //Emitir relação de avaliações físicas por período
-                        break;
+                    	
+                    	Scanner scanner = new Scanner(System.in);
+                    	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        
+                        System.out.println("Digite a data inicial (no formato dd/MM/yyyy): ");
+                        String dataInicial = scanner.nextLine();
+                        
+                        System.out.println("Digite a segunda data (no formato dd/MM/yyyy): ");
+                        String dataFinal = scanner.nextLine();
+                        
+                        try {
+                            LocalDate dInicial = LocalDate.parse(dataInicial, dateFormat);
+                            LocalDate dFinal = LocalDate.parse(dataFinal, dateFormat);
+                            
+                    		List<AvaliacaoFisica> avaliacoesPorPeriodo = AvaliacaoFisica.getHistoricoAvaliacao().stream()
+                    		        .filter(a -> a.getData().isAfter(dInicial) && a.getData().isBefore(dFinal))
+                    		        .collect(Collectors.toList());
+                        		
+                        		for (AvaliacaoFisica avaliacaoFisica : avaliacoesPorPeriodo) {
+        							System.out.println(avaliacaoFisica);
+                        		} 
+                    		
+	            			BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório de avaliações por período.txt"));
+	                		for (AvaliacaoFisica avaliacaoFisica : avaliacoesPorPeriodo) {
+								bw.append(avaliacaoFisica.toString()); 				 
+	                		}
+								
+							System.out.println("\nRelatório de avaliações por período gerado com sucesso em arquivo txt.");
+								
+							bw.flush();
+							bw.close();	
+    	            			                            
+	                        } catch (IOException e) {
+	                        	System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM/yyyy.");
+							}
+                		                		
+	                    scanner.close();
+	                    
+            			break;
                     case 8:                    	
                     	sair = true;
                     	System.out.println("Log off...\n");
