@@ -34,6 +34,7 @@ public class SistemaAcademia {
         Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(2005, 05, 17), "yukari@sushi.com", "senha789", "Gerente");
         Funcionario funcionario2 = new Funcionario("Victor", "161.015.727-30", LocalDate.of(1992, 05, 15), "999124405", "senha777", "Atendente");
         Funcionario funcionario3 = new Funcionario("Jacqueline", "275.655.478-96", LocalDate.of(1997, 06, 16), "jacqueline@serratec.com", "senha555", "Presidente da Empresa");
+        
 
         pessoasRegistradas.add(funcionario1);
         pessoasRegistradas.add(funcionario2);
@@ -111,19 +112,21 @@ public class SistemaAcademia {
                         break;
                     case 2:
                         //Solicitar agendamento de horário com personal trainer.
-                    	aluno.setPersonalTrainers(personalTrainers);
-                    	agendamentos.add(aluno.solicitarAgendamento());
+                    	Agendamento.setPersonalTrainers(personalTrainers);
+                    	Agendamento.solicitarAgendamento(aluno);
                     	
                         break;
                     case 3:
                         //Visualizar histórico de agendamentos.
-                    	aluno.visualizarHistoricoAgendamentos();
+                    	Agendamento.visualizarHistoricoAgendamentos(aluno);
                         break;
                     case 4:
                         //Cancelar agendamento.
-                    	aluno.cancelarAgendamento();
+                    	Agendamento.cancelarAgendamento(aluno);
                         break;
                     case 5:
+                    	
+                    	
                     	break;
                     case 6:
                     	System.out.println("Log off...\n");
@@ -150,7 +153,7 @@ public class SistemaAcademia {
                 switch (opcao) {
                     case 1:
                         //Visualizar agenda de atendimentos.
-                    	personalTrainer.visualizarAgendamentos(personalTrainer, agendamentos);
+                    	Agendamento.visualizarAgendamentos(personalTrainer);
                         break;
                     case 2:
                         //Registrar avaliações físicas dos alunos.
@@ -168,20 +171,7 @@ public class SistemaAcademia {
                             System.out.println("Aluno não encontrado. Verifique o CPF e tente novamente.");
                             break;
                         }
-                        System.out.println("\nAvaliação do(a) aluno(a) " + alunoParaAvaliar.getNome() + "\n");                        
-                        double peso = getDoubleInput("Peso (em kg): ");
-                        double altura = getDoubleInput("Altura (em metro): ");
-                        double imc = peso / (altura * altura);
-                        double percentualGordura = getDoubleInput("Percentual de gordura corporal (%): ");
-                        double massaMuscular = getDoubleInput("Massa muscular (em kg): ");
-                        String observacoes = getInput("Observações: ");
-                        LocalDate dataAvaliacao = LocalDate.now();
-                        
-                        AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica(peso, altura, imc, percentualGordura, massaMuscular, observacoes, dataAvaliacao);
-                        
-                        alunoParaAvaliar.setAvaliacaoFisica(avaliacaoFisica);
-                        listaAvaliacoes.add(avaliacaoFisica);
-                        System.out.println("Avaliação física registrada com sucesso para o(a) aluno(a) " + alunoParaAvaliar.getNome() + "!");
+                        AvaliacaoFisica.adicionaAvaliacao(alunoParaAvaliar, personalTrainer);
                         break;
                     case 3:
                         //Visualizar lista de avaliações realizadas.
@@ -515,7 +505,7 @@ public class SistemaAcademia {
                 
                 if (avaliacaoFisica != null) {
                     System.out.println("\nAvaliação para o(a) aluno(a) " + aluno.getNome() + ":\n");
-                    System.out.println("Data: " + avaliacaoFisica.getDataAvaliacao());
+                    System.out.println("Data: " + avaliacaoFisica.getData());
                     System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
                     System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
                     System.out.println("IMC: " + avaliacaoFisica.getImc());

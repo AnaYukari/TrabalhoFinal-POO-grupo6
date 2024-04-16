@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 //classe ligada com Aluno e PersonalTrainer
-public class Avaliacao implements AdicionaAvaliacaoFisica {
+public class Avaliacao {
 	
 		private Aluno aluno;
 	    private LocalDate data;
@@ -60,15 +60,7 @@ public class Avaliacao implements AdicionaAvaliacaoFisica {
 					Descrição: %s
 					""", aluno, data, personalTrainer, avaliacaoFisicas);
 		}
-
-		
-		public void AdicionaAvaliacao(Aluno aluno, PersonalTrainer pTrainer) {
-			
-			List<Agendamento> agendamentosAluno = aluno.agendamentos;
-			
-		}
-
-	
-			
 		
 }
+
+		

@@ -9,7 +9,6 @@ public class PersonalTrainer extends Pessoa {
     private Especialidade especialidade;
     private String cref;
     private String horarioAtendimento;
-    private List<Agendamento> agendamentos;
         
 	public PersonalTrainer(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
 			Especialidade especialidade, String cref, String horarioAtendimento) {
@@ -55,25 +54,6 @@ public class PersonalTrainer extends Pessoa {
 		this.horarioAtendimento = horarioAtendimento;
 	}
 
-	//Método para visualizar agendamentos
-	public void visualizarAgendamentos(PersonalTrainer pTrainer, List<Agendamento> agendamentos) {
-	    System.out.println("Agendamentos realizados com você:");
-	    boolean encontrouAgendamentos = false;
-	    
-	    for (Agendamento agendamento : agendamentos) {
-	        if (agendamento.getPersonalTrainer().equals(this)) {
-	            encontrouAgendamentos = true;
-	            System.out.println("Data: " + agendamento.getDataAgendamento());
-	            System.out.println("Hora: " + agendamento.getHoraAgendamento());
-	            System.out.println("Aluno: " + agendamento.getAluno().getNome());
-	            System.out.println("--------------------------");
-	        }
-	    }
-	    
-	    if (!encontrouAgendamentos) {
-	        System.out.println("Nenhum agendamento realizado com você.");
-	    }
-	}
 
 		@Override
 		public String toString() {
