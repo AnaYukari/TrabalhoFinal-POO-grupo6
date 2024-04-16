@@ -204,6 +204,33 @@ public class Agendamento {
 	        }
 	        return scanner.nextInt();
 	    }
+	    
+	    
+	  //Método para visualizar agendamentos(Personal Trainer)
+		public static void visualizarAgendamentos(PersonalTrainer pTrainer) {
+		   boolean encontrouAgendamentos = false;
+		   
+		   
+			for (Agendamento agendamento : agendamentos) {
+		        if (agendamento.getPersonalTrainer() == pTrainer) {
+		            encontrouAgendamentos = true;	          
+		        }
+			} 
+			 if(encontrouAgendamentos == true) {
+				 System.out.println("Agenda de Atendimentos com " + pTrainer.nome + "\n");
+			 }
+		    for (Agendamento agendamento : agendamentos) {
+		        if (agendamento.getPersonalTrainer() == pTrainer) {	            
+		            System.out.println("Data: " + agendamento.getDataAgendamento());
+		            System.out.println("Hora: " + agendamento.getHoraAgendamento());
+		            System.out.println("Aluno: " + agendamento.getAluno().getNome());
+		            System.out.println("--------------------------");
+		        }
+		    }
+		    if (!encontrouAgendamentos) {
+		        System.out.println("Sua agenda está vazia!");
+		    }
+		}
 
 	
 	

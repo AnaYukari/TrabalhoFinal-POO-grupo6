@@ -153,7 +153,7 @@ public class SistemaAcademia {
                 switch (opcao) {
                     case 1:
                         //Visualizar agenda de atendimentos.
-                    	personalTrainer.visualizarAgendamentos(personalTrainer, agendamentos);
+                    	Agendamento.visualizarAgendamentos(personalTrainer);
                         break;
                     case 2:
                         //Registrar avaliações físicas dos alunos.
