@@ -88,9 +88,10 @@ public class Aluno extends Pessoa {
             valorComDesconto /= 1.2;
         } else if (duracaoPlano >= 24) {
             valorComDesconto /= 1.3;
+        } else if (duracaoPlano < 6) {
+        	valorComDesconto = planoContratado.getValorPlano();
         }
-        Plano plano = new Plano(contato, valorComDesconto, contato);
-        plano.setValorPlano(valorComDesconto);
+       	planoContratado.setValorPlano(valorComDesconto);
         return valorComDesconto;
     }
 
