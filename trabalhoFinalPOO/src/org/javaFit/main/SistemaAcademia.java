@@ -34,7 +34,6 @@ public class SistemaAcademia {
         Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(2005, 05, 17), "yukari@sushi.com", "senha789", "Gerente");
         Funcionario funcionario2 = new Funcionario("Victor", "161.015.727-30", LocalDate.of(1992, 05, 15), "999124405", "senha777", "Atendente");
         Funcionario funcionario3 = new Funcionario("Jacqueline", "275.655.478-96", LocalDate.of(1997, 06, 16), "jacqueline@serratec.com", "senha555", "Presidente da Empresa");
-        Aluno alunoMetodos = new Aluno(null, null, null, null, null, null, 0, null);
 
         pessoasRegistradas.add(funcionario1);
         pessoasRegistradas.add(funcionario2);

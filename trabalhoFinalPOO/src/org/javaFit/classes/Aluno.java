@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.javaFit.main.SistemaAcademia;
-
 //subclasse de Pessoa
 public class Aluno extends Pessoa {
 	private Plano planoContratado;
@@ -157,11 +155,7 @@ public class Aluno extends Pessoa {
 	            }
 	        }
 	    }
-<<<<<<< HEAD
-=======
-	    
-	
->>>>>>> 22d378fa6b423ce6eb3fa37b0b1a5f3aca04f035
+
 	    //Método para selecionar e cancelar agendamento
 	    public void cancelarAgendamento(){
 	        if (agendamentos.isEmpty()) {

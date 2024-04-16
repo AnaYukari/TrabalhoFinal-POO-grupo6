@@ -11,10 +11,6 @@ public class AvaliacaoFisica   {
 	String observacoes;
 	LocalDate dataAvaliacao;
 	
-<<<<<<< HEAD
-=======
-
->>>>>>> 22d378fa6b423ce6eb3fa37b0b1a5f3aca04f035
 	public AvaliacaoFisica(double altura, double peso, double imc, double percentualGordura, double massaMuscular, String observacoes, LocalDate dataAvaliacao) {
 	
 		this.altura = altura;
