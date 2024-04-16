@@ -1,20 +1,21 @@
 package org.javaFit.classes;
 
 import java.time.LocalDate;
+import java.util.List;
 
 //classe ligada com Aluno e PersonalTrainer
-public class Avaliacao {
+public class Avaliacao implements AdicionaAvaliacaoFisica {
 	
 		private Aluno aluno;
 	    private LocalDate data;
 	    private PersonalTrainer personalTrainer;
-	    private String descricao;
+	    private AvaliacaoFisica avaliacaoFisicas;
 	    
-		public Avaliacao(Aluno aluno, LocalDate data, PersonalTrainer personalTrainer, String descricao) {
+		public Avaliacao(Aluno aluno, LocalDate data, PersonalTrainer personalTrainer, AvaliacaoFisica avaliacaoFisicas) {
 			this.aluno = aluno;
 			this.data = data;
 			this.personalTrainer = personalTrainer;
-			this.descricao = descricao;
+			this.avaliacaoFisicas = avaliacaoFisicas;
 		}
 
 		public Aluno getAluno() {
@@ -41,21 +42,33 @@ public class Avaliacao {
 			this.personalTrainer = personalTrainer;
 		}
 
-		public String getDescricao() {
-			return descricao;
+		public AvaliacaoFisica getAvaliacaoFisicas() {
+			return avaliacaoFisicas;
 		}
 
-		public void setDescricao(String descricao) {
-			this.descricao = descricao;
+		public void setAvaliacaoFisicas(AvaliacaoFisica avaliacaoFisicas) {
+			this.avaliacaoFisicas = avaliacaoFisicas;
 		}
 
-		@Override
+		
+		
 		public String toString() {
 			return String.format("""
 					Aluno: %s
 					Data: %s
 					Personal trainer: %s
 					Descrição: %s
-					""", aluno, data, personalTrainer, descricao);
+					""", aluno, data, personalTrainer, avaliacaoFisicas);
 		}
+
+		
+		public void AdicionaAvaliacao(Aluno aluno, PersonalTrainer pTrainer) {
+			
+			List<Agendamento> agendamentosAluno = aluno.agendamentos;
+			
+		}
+
+	
+			
+		
 }
