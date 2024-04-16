@@ -171,20 +171,7 @@ public class SistemaAcademia {
                             System.out.println("Aluno não encontrado. Verifique o CPF e tente novamente.");
                             break;
                         }
-                        System.out.println("\nAvaliação do(a) aluno(a) " + alunoParaAvaliar.getNome() + "\n");                        
-                        double peso = getDoubleInput("Peso (em kg): ");
-                        double altura = getDoubleInput("Altura (em metro): ");
-                        double imc = peso / (altura * altura);
-                        double percentualGordura = getDoubleInput("Percentual de gordura corporal (%): ");
-                        double massaMuscular = getDoubleInput("Massa muscular (em kg): ");
-                        String observacoes = getInput("Observações: ");
-                        LocalDate dataAvaliacao = LocalDate.now();
-                        
-                        AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica(peso, altura, imc, percentualGordura, massaMuscular, observacoes, dataAvaliacao);
-                        
-                        alunoParaAvaliar.setAvaliacaoFisica(avaliacaoFisica);
-                        listaAvaliacoes.add(avaliacaoFisica);
-                        System.out.println("Avaliação física registrada com sucesso para o(a) aluno(a) " + alunoParaAvaliar.getNome() + "!");
+                        AvaliacaoFisica.adicionaAvaliacao(alunoParaAvaliar, personalTrainer);
                         break;
                     case 3:
                         //Visualizar lista de avaliações realizadas.
@@ -518,7 +505,7 @@ public class SistemaAcademia {
                 
                 if (avaliacaoFisica != null) {
                     System.out.println("\nAvaliação para o(a) aluno(a) " + aluno.getNome() + ":\n");
-                    System.out.println("Data: " + avaliacaoFisica.getDataAvaliacao());
+                    System.out.println("Data: " + avaliacaoFisica.getData());
                     System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
                     System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
                     System.out.println("IMC: " + avaliacaoFisica.getImc());
