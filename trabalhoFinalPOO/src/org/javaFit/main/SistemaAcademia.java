@@ -28,7 +28,7 @@ public class SistemaAcademia {
     static List<Agendamento> agendamentos = new ArrayList<>();
     private static List<AvaliacaoFisica> listaAvaliacoes = new ArrayList<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
     	
     	//inclusão de funcionários iniciais do sistema
         Funcionario funcionario1 = new Funcionario("Ana Yukari", "111.222.333-44", LocalDate.of(2005, 05, 17), "yukari@sushi.com", "senha789", "Gerente");
@@ -42,7 +42,7 @@ public class SistemaAcademia {
 		//início do programa
         boolean sair = false;
         while (!sair) {
-            System.out.println("Academia JavaFit!\n");
+            System.out.println("Academia JavaFit!");
             System.out.println("1. Fazer login.");
             System.out.println("2. Sair.\n");
 
@@ -57,9 +57,9 @@ public class SistemaAcademia {
         	    login(cpf, senha);
                 break;
             case 2:
-                System.out.println("Finalizando o sistema...");
-            	sair = true;
-                break;        
+            	System.out.println("Finalizando o sistema...");
+            	sair = true;               
+        		break;        
            
             }	
         }
@@ -120,7 +120,7 @@ public class SistemaAcademia {
                         break;
                     case 4:
                         //Cancelar agendamento.
-                    	//aluno.cancelarAgendamento();
+                    	aluno.cancelarAgendamento();
                         break;
                     case 5:
                     	break;

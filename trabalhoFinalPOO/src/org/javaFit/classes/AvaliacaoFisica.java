@@ -11,7 +11,6 @@ public class AvaliacaoFisica implements AdicionaAvaliacaoFisica {
 	String observacoes;
 	LocalDate dataAvaliacao;
 	
-	
 	public AvaliacaoFisica(double altura, double peso, double imc, double percentualGordura, double massaMuscular, String observacoes, LocalDate dataAvaliacao) {
 	    this.altura = altura;
 	    this.peso = peso;

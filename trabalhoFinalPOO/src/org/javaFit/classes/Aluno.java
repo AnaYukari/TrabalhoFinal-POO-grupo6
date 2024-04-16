@@ -154,8 +154,6 @@ public class Aluno extends Pessoa {
 	            }
 	        }
 	    }
-	    
-	  //Esse metodo ta funcionando, mas não faz sentido, tenho q explicar meu ponto de vista - yuyuka//
 	    //Método para selecionar e cancelar agendamento
 	    public void cancelarAgendamento(){
 	        if (agendamentos.isEmpty()) {
