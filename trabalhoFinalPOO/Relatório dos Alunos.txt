@@ -3,7 +3,7 @@ CPF: 489.746.148-66
 Data de Nascimento: 1999-11-21
 Contato: gregorio@email.com
 Plano: Plano: Familiar
-Valor do Plano: R$59,90
+Valor do Plano: R$49,92
 Descrição do Plano: Todos os benefícios do plano básico para todos os membros da família. Descontos especiais para famílias.
 Duração do plano: 5 meses
 Data de Matrícula: 2024-04-13
@@ -13,7 +13,7 @@ CPF: 758.234.567-89
 Data de Nascimento: 1987-06-15
 Contato: clotilde@email.com
 Plano: Plano: Corporativo
-Valor do Plano: R$54,90
+Valor do Plano: R$42,23
 Descrição do Plano: Benefícios do plano básico para funcionários da empresa. Descontos corporativos.
 Duração do plano: 37 meses
 Data de Matrícula: 2024-04-13
@@ -23,7 +23,7 @@ CPF: 712.835.926-42
 Data de Nascimento: 1985-09-07
 Contato: eusebio@email.com
 Plano: Plano: Familiar
-Valor do Plano: R$59,90
+Valor do Plano: R$49,92
 Descrição do Plano: Todos os benefícios do plano básico para todos os membros da família. Descontos especiais para famílias.
 Duração do plano: 15 meses
 Data de Matrícula: 2024-04-13
@@ -33,7 +33,7 @@ CPF: 753.829.461-32
 Data de Nascimento: 1985-09-28
 Contato: cecilia@email.com
 Plano: Plano: Premium
-Valor do Plano: R$94,90
+Valor do Plano: R$60,83
 Descrição do Plano: Acesso a aulas especiais, como ioga, treinamento funcional e dança. Sessões adicionais de treinamento personalizado.
 Duração do plano: 39 meses
 Data de Matrícula: 2024-04-13
@@ -43,7 +43,7 @@ CPF: 123.456.789-00
 Data de Nascimento: 1999-06-19
 Contato: 123456789
 Plano: Plano: Basico
-Valor do Plano: R$74,90
+Valor do Plano: R$68,09
 Descrição do Plano: Acesso completo ao espaço da academia. Uso de equipamentos de cardio e musculação.
 Duração do plano: 7 meses
 Data de Matrícula: 2024-04-13
@@ -53,7 +53,7 @@ CPF: 728.765.446-86
 Data de Nascimento: 1989-11-08
 Contato: 123456789
 Plano: Plano: Premium
-Valor do Plano: R$94,90
+Valor do Plano: R$60,83
 Descrição do Plano: Acesso a aulas especiais, como ioga, treinamento funcional e dança. Sessões adicionais de treinamento personalizado.
 Duração do plano: 14 meses
 Data de Matrícula: 2024-04-13
@@ -63,7 +63,7 @@ CPF: 721.659.478-25
 Data de Nascimento: 2000-06-14
 Contato: romildo@email.com
 Plano: Plano: Familiar
-Valor do Plano: R$59,90
+Valor do Plano: R$49,92
 Descrição do Plano: Todos os benefícios do plano básico para todos os membros da família. Descontos especiais para famílias.
 Duração do plano: 5 meses
 Data de Matrícula: 2024-04-14
