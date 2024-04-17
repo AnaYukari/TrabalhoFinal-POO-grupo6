@@ -9,7 +9,7 @@ O objetivo deste projeto é simular o funcionamento de uma academia, permitindo 
 ## Integrantes do Grupo
 
 - **Alexandre De Oliveira Silveira**  
-  LinkedIn -www.linkedin.com/in/Alexandre-Oliveira-Silveira/
+  LinkedIn -www.linkedin.com/in/Alexandre-Oliveira-Silveira
   
 - **Ana Yukari Futigami Pereira**  
   LinkedIn - https://www.linkedin.com/in/anayukari/
