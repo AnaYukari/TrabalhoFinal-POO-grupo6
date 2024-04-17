@@ -449,10 +449,10 @@ public class SistemaAcademia {
                     	                 
                     	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                         
-                        System.out.println("Digite a data inicial (no formato dd/MM/yyyy): ");
+                        System.out.println("Digite a data inicial do período. (no formato dd/MM/yyyy): ");
                         String dataInicial = scanner.nextLine();
                         
-                        System.out.println("Digite a segunda data (no formato dd/MM/yyyy): ");
+                        System.out.println("Digite a data final do período. (no formato dd/MM/yyyy): ");
                         String dataFinal = scanner.nextLine();
                         
                         try {
@@ -466,11 +466,13 @@ public class SistemaAcademia {
                         		for (AvaliacaoFisica avaliacaoFisica : avaliacoesPorPeriodo) {
                         			System.out.println("\n===============================================\n");
                         			System.out.println(avaliacaoFisica.toString());
+                        			
                         		} 
                     		
 	            			BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório de avaliações por período.txt"));
 	                		for (AvaliacaoFisica avaliacaoFisica : avaliacoesPorPeriodo) {
-								bw.append(avaliacaoFisica.toString()); 				 
+								bw.append(avaliacaoFisica.toString());
+								bw.append("\n===============================================\n");
 	                		}
 								
 							System.out.println("\nRelatório de avaliações por período gerado com sucesso em arquivo txt.");
@@ -502,13 +504,13 @@ public class SistemaAcademia {
 
     //Método para receber entrada de número inteiro do usuário
     private static int getIntInput(String prompt) {
-        System.out.print(prompt); // Exibe o prompt apenas uma vez
+        System.out.print(prompt); 
         while (true) {
             try {
-                if (scanner.hasNextLine()) { // Verifica se há uma nova linha disponível
+                if (scanner.hasNextLine()) { 
                     return Integer.parseInt(scanner.nextLine());
                 } else {
-                    // Aguarda um pouco antes de verificar novamente se há uma nova linha
+                    
                     Thread.sleep(100);
                 }
             } catch (NumberFormatException e) {
