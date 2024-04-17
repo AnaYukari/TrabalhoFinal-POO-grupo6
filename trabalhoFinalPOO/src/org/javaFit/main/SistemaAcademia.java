@@ -465,7 +465,8 @@ public class SistemaAcademia {
                     		        .collect(Collectors.toList());
                         		
                         		for (AvaliacaoFisica avaliacaoFisica : avaliacoesPorPeriodo) {
-        							System.out.println(avaliacaoFisica.toString());
+                        			System.out.println("\n===============================================\n");
+                        			System.out.println(avaliacaoFisica.toString());
                         		} 
                     		
 	            			BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório de avaliações por período.txt"));
