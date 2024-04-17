@@ -3,6 +3,7 @@ package org.javaFit.classes;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,8 @@ public class Agendamento {
 	private PersonalTrainer personalTrainer;
 	private static List<PersonalTrainer> personalTrainers;
 	protected static List<Agendamento> agendamentos = new ArrayList<>();
+	static Scanner scanner = new Scanner(System.in);
+	static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	public Agendamento(Aluno aluno, PersonalTrainer personalTrainer, LocalDate dataAgendamento,LocalTime horaAgendamento) {
 		this.aluno = aluno;
@@ -29,7 +32,8 @@ public class Agendamento {
 	}
 
 	public void setDataAgendamento(LocalDate dataAgendamento) {
-		this.dataAgendamento = dataAgendamento;
+		this.dataAgendamento  = dataAgendamento;
+
 	}
 
 	public LocalTime getHoraAgendamento() {
@@ -69,13 +73,12 @@ public class Agendamento {
 					Nome personal trainer: %s
 					Data do agendamento: %s
 					Hora do agendamento: %s
-					""", aluno.getNome(), personalTrainer.getNome(), dataAgendamento, horaAgendamento);
+					""", aluno.getNome(), personalTrainer.getNome(), dataAgendamento.format(dateFormat), horaAgendamento);
 				
 	}
 	
 	//Método para solicitar agendamento
 	   public static void  solicitarAgendamento(Aluno aluno) {
-	        Scanner scanner = new Scanner(System.in);
 
 	        System.out.println("Lista de Personal Trainers Disponíveis:");
 	        for (int i = 0; i < personalTrainers.size(); i++) {
@@ -93,14 +96,14 @@ public class Agendamento {
 	        PersonalTrainer personalTrainerEscolhido = personalTrainers.get(escolhaPersonalTrainer - 1);
 	        LocalDate dataAgendamento;
 	        LocalTime horaAgendamento;
-
+	        LocalDate d;
 	        
 	        while (true) {
-	        	 System.out.print("Digite a data do agendamento (AAAA-MM-DD): ");	       
+	        	 System.out.print("Digite a data do agendamento (no formato dd/MM/yyyy): ");	       
 	        	 String dataString1 = scanner.next();
-
+	        	 
 	            try {
-	                dataAgendamento = LocalDate.parse(dataString1);
+	            	d = LocalDate.parse(dataString1, dateFormat);
 	                break;
 	                
 	            } catch (DateTimeParseException e) {
@@ -109,7 +112,7 @@ public class Agendamento {
 	        }
      
 	        while (true) {
-	            System.out.print("Digite a hora do agendamento (HH:MM): ");
+	            System.out.print("Digite a hora do agendamento (no formato HH:MM): ");
 	            String horaString = scanner.next();
 	            
 	            try {
@@ -132,10 +135,9 @@ public class Agendamento {
 	            }
 	        }
 	        
-	        agendamentos.add(new Agendamento(aluno, personalTrainerEscolhido, dataAgendamento, horaAgendamento));
+	        agendamentos.add(new Agendamento(aluno, personalTrainerEscolhido, d, horaAgendamento));
 
 	        System.out.println("Agendamento realizado com sucesso!");
-	        scanner.close();
 	   }
 	   
 	//Método para visualizar histórico de agendamentos
@@ -186,7 +188,7 @@ public class Agendamento {
 
 	        Agendamento agendamentoSelecionado = agendamentos.get(escolha - 1);
 	        System.out.println("Agendamento selecionado:");
-	        System.out.println("Data: " + agendamentoSelecionado.getDataAgendamento());
+	        System.out.println("Data: " + agendamentoSelecionado.getDataAgendamento().format(dateFormat));
 	        System.out.println("Hora: " + agendamentoSelecionado.getHoraAgendamento());
 	        System.out.println("Personal Trainer: " + agendamentoSelecionado.getPersonalTrainer().getNome());
 
@@ -196,8 +198,7 @@ public class Agendamento {
 	    
 
 	// Método para entrada de inteiros
-	    private static int getIntInput(String prompt) {
-	        Scanner scanner = new Scanner(System.in);
+	    private static int getIntInput(String prompt) {    
 
 	        System.out.print(prompt);
 	        while (!scanner.hasNextInt()) {
@@ -237,8 +238,6 @@ public class Agendamento {
 		    }
 		}
 
-	
-	
 	
 	
 }

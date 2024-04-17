@@ -1,8 +1,0 @@
-Aluno(a): Madu.
-Personal Trainer: Juvêncio.
-Data da avaliação: 2024-04-16.
-Altura: 1,69M.
-Peso:  60,00Kg.
-Imc:  21,01.
-Percentual de Gordura: 12,00 .
-Massa Muscular:  23,00Kg.

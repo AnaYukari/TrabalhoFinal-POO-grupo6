@@ -1,6 +1,7 @@
 package org.javaFit.classes;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 //subclasse de Pessoa
 public class Aluno extends Pessoa {
@@ -8,6 +9,7 @@ public class Aluno extends Pessoa {
 	private LocalDate dataMatricula;
 	private AvaliacaoFisica avaliacaoFisica;
 	private int duracaoPlano;
+	static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Aluno(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
 			Plano planoContratado, int duracaoPlano, LocalDate dataMatricula) {
@@ -63,23 +65,11 @@ public class Aluno extends Pessoa {
 				Descrição do Plano: %s
 				
 				
-				""", getNome(), getCpf(), getDataMatricula(), getContato(), getDataMatricula(), getPlanoContratado().getNomePlano(), getDuracaoPlano(), aplicarDesconto(), getPlanoContratado().getDescricaoPlano() );
-		
-		
-//		System.out.println("Dados pessoais:\n");
-//        System.out.println("Nome: " + aluno.getNome());
-//        System.out.println("CPF: " + aluno.getCpf());
-//        System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
-//        System.out.println("Contato: " + aluno.getContato() + "\n");
-//        System.out.println("Plano Contratado: " + aluno.getPlanoContratado().getNomePlano());
-//        System.out.println("Duração do Plano: " + aluno.getDuracaoPlano() + " meses");
-//        System.out.println("Valor do Plano: R$" + aluno.getPlanoContratado().getValorPlano());
-//        System.out.println("Descrição do Plano: " + aluno.getPlanoContratado().getDescricaoPlano());
+				""", getNome(), getCpf(), getDataNascimento().format(dateFormat), getContato(), getDataMatricula().format(dateFormat), getPlanoContratado().getNomePlano(), getDuracaoPlano(), aplicarDesconto(), getPlanoContratado().getDescricaoPlano() );
+	
 	}
 
-
     //Método para aplicar desconto conforme duração do plano
-	//!!!!!! Pedir ajuda com desconto para valores de plano !!!!!!!!!!!!!!!!!!
     public double aplicarDesconto() {
         double valorComDesconto = planoContratado.getValorPlano();
         if (duracaoPlano >= 6 && duracaoPlano < 12) {
@@ -110,7 +100,7 @@ public class Aluno extends Pessoa {
 				Descrição do Plano: %s
 				
 				
-				""", getNome(), getCpf(), getDataMatricula(), getContato(), getDataMatricula(), getPlanoContratado().getNomePlano(), getDuracaoPlano(), aplicarDesconto(), getPlanoContratado().getDescricaoPlano() );
+				""", getNome(), getCpf(), getDataNascimento().format(dateFormat), getContato(), getDataMatricula().format(dateFormat), getPlanoContratado().getNomePlano(), getDuracaoPlano(), aplicarDesconto(), getPlanoContratado().getDescricaoPlano() );
 		
 	}
 

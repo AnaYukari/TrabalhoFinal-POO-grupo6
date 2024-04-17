@@ -1,6 +1,7 @@
 package org.javaFit.classes;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 //classe mãe de Aluno, Funcionario e PersonalTrainer
 public abstract class Pessoa {
@@ -10,6 +11,7 @@ public abstract class Pessoa {
     protected LocalDate dataNascimento;
     protected String contato;
     protected String senha;
+    static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
 		this.nome = nome;

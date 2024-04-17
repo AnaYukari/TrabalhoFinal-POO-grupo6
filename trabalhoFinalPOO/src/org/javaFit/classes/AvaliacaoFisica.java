@@ -1,6 +1,7 @@
 package org.javaFit.classes;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,6 +18,7 @@ public class AvaliacaoFisica {
 	private String observacoes;
 	private static List<AvaliacaoFisica> historicoAvaliacao = new ArrayList<>();
 	private static Scanner scanner = new Scanner(System.in);
+	static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	public AvaliacaoFisica(Aluno aluno, LocalDate data, PersonalTrainer personalTrainer, double altura, double peso,
 			double imc, double percentualGordura, double massaMuscular, String observacoes) {
@@ -111,7 +113,7 @@ public class AvaliacaoFisica {
 				Imc:  %.2f.
 				Percentual de Gordura: %.2f .
 				Massa Muscular:  %.2fKg.
-				""", aluno.getNome(), personalTrainer.getNome(), data, altura, peso, imc, percentualGordura, massaMuscular);
+				""", aluno.getNome(), personalTrainer.getNome(), data.format(dateFormat), altura, peso, imc, percentualGordura, massaMuscular);
 	}
 
 	public static void adicionaAvaliacao(Aluno alunoParaAvaliar, PersonalTrainer ptrainer) {
@@ -142,7 +144,7 @@ public class AvaliacaoFisica {
 		for (AvaliacaoFisica avaliacaoFisica : historicoAvaliacao) {
 			if (avaliacaoFisica.getAluno() == aluno) {
 				avaliacoesEncontradas = true;
-				System.out.println("Data: " + avaliacaoFisica.getData());
+				System.out.println("Data: " + avaliacaoFisica.getData().format(dateFormat));
 				System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
 				System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
 				System.out.printf("IMC: %.2f\n", avaliacaoFisica.getImc());
@@ -165,7 +167,7 @@ public class AvaliacaoFisica {
 		for (AvaliacaoFisica avaliacaoFisica : historicoAvaliacao) {
 			if (avaliacaoFisica.getPersonalTrainer() == ptrainer) {
 				avaliacoesEncontradas = true;
-				System.out.println("Data: " + avaliacaoFisica.getData());
+				System.out.println("Data: " + avaliacaoFisica.getData().format(dateFormat));
 				System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
 				System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
 				System.out.printf("IMC: %.2f ", avaliacaoFisica.getImc(), "\n");

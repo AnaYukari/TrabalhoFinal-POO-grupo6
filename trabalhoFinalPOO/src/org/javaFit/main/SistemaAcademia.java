@@ -28,6 +28,7 @@ public class SistemaAcademia {
     private static List<Plano> planos = new ArrayList<>();
     private static List<PersonalTrainer> personalTrainers = new ArrayList<>();
     static List<Agendamento> agendamentos = new ArrayList<>();
+    static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public static void main(String[] args)  {
     	
@@ -337,11 +338,11 @@ public class SistemaAcademia {
                     	        Aluno aluno = (Aluno) pessoa;
                     	        System.out.println("Nome: " + aluno.getNome());
                     	        System.out.println("CPF: " + aluno.getCpf());
-                    	        System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
+                    	        System.out.println("Data de Nascimento: " + aluno.getDataNascimento().format(dateFormat));
                     	        System.out.println("Contato: " + aluno.getContato());
                     	        System.out.println("Plano: " + aluno.getPlanoContratado());
                     	        System.out.println("Duração do plano: " + aluno.getDuracaoPlano() + " meses");
-                    	        System.out.println("Data de Matrícula: " + aluno.getDataMatricula());
+                    	        System.out.println("Data de Matrícula: " + aluno.getDataMatricula().format(dateFormat));
                     	        System.out.println("===============================================");
                     	    }
                     	}         	
@@ -352,11 +353,11 @@ public class SistemaAcademia {
                         	        Aluno aluno = (Aluno) pessoa;
                         	        bw.append("Nome: " + aluno.getNome());
                         	        bw.append("\nCPF: " + aluno.getCpf());
-                        	        bw.append("\nData de Nascimento: " + aluno.getDataNascimento());
+                        	        bw.append("\nData de Nascimento: " + aluno.getDataNascimento().format(dateFormat));
                         	        bw.append("\nContato: " + aluno.getContato());
                         	        bw.append("\nPlano: " + aluno.getPlanoContratado());
                         	        bw.append("\nDuração do plano: " + aluno.getDuracaoPlano() + " meses");
-                        	        bw.append("\nData de Matrícula: " + aluno.getDataMatricula());
+                        	        bw.append("\nData de Matrícula: " + aluno.getDataMatricula().format(dateFormat));
                         	        bw.append("\n===============================================\n");
                         	    }
                        	    }
@@ -380,7 +381,7 @@ public class SistemaAcademia {
                     	        Funcionario funcionario1 = (Funcionario) pessoa;
                     	        System.out.println("Nome: " + funcionario1.getNome());
                     	        System.out.println("CPF: " + funcionario1.getCpf());
-                    	        System.out.println("Data de Nascimento: " + funcionario1.getDataNascimento());
+                    	        System.out.println("Data de Nascimento: " + funcionario1.getDataNascimento().format(dateFormat));
                     	        System.out.println("Contato: " + funcionario1.getContato());
                     	        System.out.println("Cargo: " + funcionario1.getCargo());
                     	        System.out.println("===============================================");
@@ -394,7 +395,7 @@ public class SistemaAcademia {
                     	        PersonalTrainer personalTrainer = (PersonalTrainer) pessoa;
                     	        System.out.println("Nome: " + personalTrainer.getNome());
                     	        System.out.println("CPF: " + personalTrainer.getCpf());
-                    	        System.out.println("Data de Nascimento: " + personalTrainer.getDataNascimento());
+                    	        System.out.println("Data de Nascimento: " + personalTrainer.getDataNascimento().format(dateFormat));
                     	        System.out.println("Contato: " + personalTrainer.getContato());
                     	        System.out.println("Especialidade: " + personalTrainer.getEspecialidade());
                     	        System.out.println("CREF: " + personalTrainer.getCref());
@@ -412,7 +413,7 @@ public class SistemaAcademia {
                         	        Funcionario funcionario1 = (Funcionario) pessoa;
                         	        bw.append("Nome: " + funcionario1.getNome());
                         	        bw.append("\nCPF: " + funcionario1.getCpf());
-                        	        bw.append("\nData de Nascimento: " + funcionario1.getDataNascimento());
+                        	        bw.append("\nData de Nascimento: " + funcionario1.getDataNascimento().format(dateFormat));
                         	        bw.append("\nContato: " + funcionario1.getContato());
                         	        bw.append("\nCargo: " + funcionario1.getCargo());
                         	        bw.append("\n===============================================\n");
@@ -426,7 +427,7 @@ public class SistemaAcademia {
                         	        PersonalTrainer personalTrainer = (PersonalTrainer) pessoa;
                         	        bw.append("Nome: " + personalTrainer.getNome());
                         	        bw.append("\nCPF: " + personalTrainer.getCpf());
-                        	        bw.append("\nData de Nascimento: " + personalTrainer.getDataNascimento());
+                        	        bw.append("\nData de Nascimento: " + personalTrainer.getDataNascimento().format(dateFormat));
                         	        bw.append("\nContato: " + personalTrainer.getContato());
                         	        bw.append("\nEspecialidade: " + personalTrainer.getEspecialidade());
                         	        bw.append("\nCREF: " + personalTrainer.getCref());
@@ -447,7 +448,7 @@ public class SistemaAcademia {
                     case 7:
                         //Emitir relação de avaliações físicas por período
                     	                 
-                    	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+      
                         
                         System.out.println("Digite a data inicial do período. (no formato dd/MM/yyyy): ");
                         String dataInicial = scanner.nextLine();
