@@ -23,9 +23,8 @@ public class Funcionario extends Pessoa {
 	public String toString() {
 		return super.toString() + String.format("""
 				Cargo: %s
-				
+
 				""", cargo);
 	}
-
 
 }

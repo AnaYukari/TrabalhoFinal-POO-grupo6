@@ -11,8 +11,8 @@ public class Aluno extends Pessoa {
 	private int duracaoPlano;
 	static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Aluno(String nome, String cpf, LocalDate dataNascimento, String contato, String senha,
-			Plano planoContratado, int duracaoPlano, LocalDate dataMatricula) {
+	public Aluno(String nome, String cpf, LocalDate dataNascimento, String contato, String senha, Plano planoContratado,
+			int duracaoPlano, LocalDate dataMatricula) {
 		super(nome, cpf, dataNascimento, contato, senha);
 		this.planoContratado = planoContratado;
 		this.duracaoPlano = duracaoPlano;
@@ -43,16 +43,15 @@ public class Aluno extends Pessoa {
 		this.avaliacaoFisica = avaliacaoFisica;
 	}
 
-    public int getDuracaoPlano() {
-        return duracaoPlano;
-    }
+	public int getDuracaoPlano() {
+		return duracaoPlano;
+	}
 
-    public void setDuracaoPlano(int duracaoPlano) {
-        this.duracaoPlano = duracaoPlano;
-    }
-    
+	public void setDuracaoPlano(int duracaoPlano) {
+		this.duracaoPlano = duracaoPlano;
+	}
 
-	public  void vizualizarDadosPessoais() {
+	public void vizualizarDadosPessoais() {
 		System.out.printf("""
 				Nome: %s.
 				CPF: %s.
@@ -63,10 +62,12 @@ public class Aluno extends Pessoa {
 				Duração do Plano: %d meses.
 				Valor do Plano: R$%.2f.
 				Descrição do Plano: %s
-				
-				
-				""", getNome(), getCpf(), getDataNascimento().format(dateFormat), getContato(), getDataMatricula().format(dateFormat), getPlanoContratado().getNomePlano(), getDuracaoPlano(), aplicarDesconto(), getPlanoContratado().getDescricaoPlano() );
-	
+
+
+				""", getNome(), getCpf(), getDataNascimento().format(dateFormat), getContato(),
+				getDataMatricula().format(dateFormat), getPlanoContratado().getNomePlano(), getDuracaoPlano(),
+				aplicarDesconto(), getPlanoContratado().getDescricaoPlano());
+
 	}
 
     //Método para aplicar desconto conforme duração do plano
@@ -86,6 +87,7 @@ public class Aluno extends Pessoa {
     }
 
 
+
 	@Override
 	public String toString() {
 		return String.format("""
@@ -98,10 +100,12 @@ public class Aluno extends Pessoa {
 				Duração do Plano: %d meses.
 				Valor do Plano: R$%.2f.
 				Descrição do Plano: %s
-				
-				
-				""", getNome(), getCpf(), getDataNascimento().format(dateFormat), getContato(), getDataMatricula().format(dateFormat), getPlanoContratado().getNomePlano(), getDuracaoPlano(), aplicarDesconto(), getPlanoContratado().getDescricaoPlano() );
-		
+
+
+				""", getNome(), getCpf(), getDataNascimento().format(dateFormat), getContato(),
+				getDataMatricula().format(dateFormat), getPlanoContratado().getNomePlano(), getDuracaoPlano(),
+				aplicarDesconto(), getPlanoContratado().getDescricaoPlano());
+
 	}
 
 }

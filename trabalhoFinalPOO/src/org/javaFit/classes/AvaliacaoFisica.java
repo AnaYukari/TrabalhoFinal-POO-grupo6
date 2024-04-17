@@ -113,7 +113,8 @@ public class AvaliacaoFisica {
 				Imc:  %.2f.
 				Percentual de Gordura: %.2f .
 				Massa Muscular:  %.2fKg.
-				""", aluno.getNome(), personalTrainer.getNome(), data.format(dateFormat), altura, peso, imc, percentualGordura, massaMuscular);
+				""", aluno.getNome(), personalTrainer.getNome(), data.format(dateFormat), altura, peso, imc,
+				percentualGordura, massaMuscular);
 	}
 
 	public static void adicionaAvaliacao(Aluno alunoParaAvaliar, PersonalTrainer ptrainer) {
