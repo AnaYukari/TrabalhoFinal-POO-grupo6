@@ -198,16 +198,15 @@ public class Agendamento {
 	// Método para entrada de inteiros
 	    private static int getIntInput(String prompt) {
 	        Scanner scanner = new Scanner(System.in);
-	        int inteiro;
+
 	        System.out.print(prompt);
 	        while (!scanner.hasNextInt()) {
 	            System.out.println("Entrada inválida. Digite um número inteiro.");
 	            System.out.print(prompt);
 	            scanner.next();
 	        }
-	        inteiro = scanner.nextInt();
-	        scanner.close();
-	        return inteiro;
+	
+	        return scanner.nextInt();
 	        
 	    }
 	    

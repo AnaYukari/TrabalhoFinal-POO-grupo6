@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -467,7 +465,7 @@ public class SistemaAcademia {
                     		        .collect(Collectors.toList());
                         		
                         		for (AvaliacaoFisica avaliacaoFisica : avaliacoesPorPeriodo) {
-        							System.out.println(avaliacaoFisica);
+        							System.out.println(avaliacaoFisica.toString());
                         		} 
                     		
 	            			BufferedWriter bw = new BufferedWriter(new FileWriter("Relatório de avaliações por período.txt"));
@@ -506,39 +504,21 @@ public class SistemaAcademia {
 
     //Método para receber entrada de número inteiro do usuário
     private static int getIntInput(String prompt) {
+        System.out.print(prompt); // Exibe o prompt apenas uma vez
         while (true) {
             try {
-                System.out.print(prompt);
-                return Integer.parseInt(scanner.nextLine());
+                if (scanner.hasNextLine()) { // Verifica se há uma nova linha disponível
+                    return Integer.parseInt(scanner.nextLine());
+                } else {
+                    // Aguarda um pouco antes de verificar novamente se há uma nova linha
+                    Thread.sleep(100);
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Por favor, digite um número inteiro válido.");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-	
     }
 
-    
-//    private static void visualizarAvaliacoesRealizadas() {
-//        System.out.println("Lista de avaliações físicas realizadas:");
-//        
-//        for (Pessoa pessoa : pessoasRegistradas) {
-//            if (pessoa instanceof Aluno) {
-//                Aluno aluno = (Aluno) pessoa;
-//                AvaliacaoFisica avaliacaoFisica = aluno.getAvaliacaoFisica();
-//                
-//                if (avaliacaoFisica != null) {
-//                    System.out.println("\nAvaliação para o(a) aluno(a) " + aluno.getNome() + ":\n");
-//                    System.out.println("Data: " + avaliacaoFisica.getData());
-//                    System.out.println("Peso: " + avaliacaoFisica.getPeso() + "kg");
-//                    System.out.println("Altura: " + avaliacaoFisica.getAltura() + "m");
-//                    System.out.println("IMC: " + avaliacaoFisica.getImc());
-//                    System.out.println("Percentual de Gordura Corporal: " + avaliacaoFisica.getPercentualGordura() + "%");
-//                    System.out.println("Massa Muscular: " + avaliacaoFisica.getMassaMuscular() + " kg");
-//                    System.out.println("Observações: " + avaliacaoFisica.getObservacoes());
-//                } else {
-//                    System.out.println("Nenhuma avaliação física registrada para o aluno " + aluno.getNome() + ".\n");
-//                }
-//            }
-//        }
-//    }
 }

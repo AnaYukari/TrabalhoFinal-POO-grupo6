@@ -1,0 +1,27 @@
+Aluno(a): Nome: Madu.
+CPF: 123.456.789-00.
+Data de Nascimento: 2024-04-13.
+Contato: 123456789 .
+Data de Matricula: 2024-04-13.
+Plano Contratado: Basico.
+Duração do Plano: 7 meses.
+Valor do Plano: R$56,27.
+Descrição do Plano: Acesso completo ao espaço da academia. Uso de equipamentos de cardio e musculação.
+
+
+.
+Personal Trainer: Nome: Juvêncio
+CPF: 746.566.100-08
+Data de Nascimento: 1954-12-14
+Contato: juvencio@email.com
+Especialidade: CONDICIONAMENTO_FISICO
+CREF: 45666524
+Hora de Atendimento: 09:00 às 13:00
+
+.
+Data: 2024-04-16.
+Altura: 1,60M.
+Peso:  60,00Kg.
+Imc:  23,44.
+Percentual de Gordura: 12,000000 .
+Massa Muscular:  21,00Kg.
