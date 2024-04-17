@@ -1,0 +1,71 @@
+## Funcionários ##
+
+Nome: Ana Yukari
+CPF: 111.222.333-44
+Data de Nascimento: 17/05/2005
+Contato: yukari@sushi.com
+Cargo: Gerente
+===============================================
+Nome: Victor
+CPF: 161.015.727-30
+Data de Nascimento: 15/05/1992
+Contato: 999124405
+Cargo: Atendente
+===============================================
+Nome: Jacqueline
+CPF: 275.655.478-96
+Data de Nascimento: 16/06/1997
+Contato: jacqueline@serratec.com
+Cargo: Presidente da Empresa
+===============================================
+
+## Personal Trainers ##
+
+Nome: Juvêncio
+CPF: 746.566.100-08
+Data de Nascimento: 14/12/1954
+Contato: juvencio@email.com
+Especialidade: CONDICIONAMENTO_FISICO
+CREF: 45666524
+Horário de Atendimento: 09:00 às 13:00
+===============================================
+Nome: Alcides
+CPF: 823.490.652-73
+Data de Nascimento: 05/03/1978
+Contato: alcides@email.com
+Especialidade: EMAGRECIMENTO
+CREF: 98765432
+Horário de Atendimento: 17:00 às 19:00
+===============================================
+Nome: Almerinda
+CPF: 825.374.299-77
+Data de Nascimento: 02/03/1976
+Contato: almerinda@email.com
+Especialidade: HIPERTROFIA_MUSCULAR
+CREF: 12456378
+Horário de Atendimento: 14:00 às 16:00
+===============================================
+Nome: Bernadete
+CPF: 623.987.452-10
+Data de Nascimento: 02/03/1978
+Contato: bernadete@email.com
+Especialidade: REABILITACAO_FISICA
+CREF: 78451236
+Horário de Atendimento: 18:00 às 20:00
+===============================================
+Nome: Nicolle
+CPF: 478.655.489-54
+Data de Nascimento: 17/05/2005
+Contato: 987654321
+Especialidade: CONDICIONAMENTO_FISICO
+CREF: 45521235
+Horário de Atendimento: 08:00 às 12:00
+===============================================
+Nome: Kayque
+CPF: 987.654.321-00
+Data de Nascimento: 21/09/2002
+Contato: 987544253
+Especialidade: REABILITACAO_FISICA
+CREF: 78945645
+Horário de Atendimento: 13:00 às 17:00
+===============================================

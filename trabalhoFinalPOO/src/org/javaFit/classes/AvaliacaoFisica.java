@@ -119,11 +119,11 @@ public class AvaliacaoFisica {
 
 	public static void adicionaAvaliacao(Aluno alunoParaAvaliar, PersonalTrainer ptrainer) {
 		System.out.println("\nAvaliação do(a) aluno(a) " + alunoParaAvaliar.getNome() + "\n");
-		double peso = getDoubleInput("Peso (em kg): ");
-		double altura = getDoubleInput("Altura (em metro): ");
+		double peso = naoNegativoDoubleInput("Peso (em kg): ");
+		double altura = naoNegativoDoubleInput("Altura (em metro): ");
 		double imc = peso / (altura * altura);
-		double percentualGordura = getDoubleInput("Percentual de gordura corporal (%): ");
-		double massaMuscular = getDoubleInput("Massa muscular (em kg): ");
+		double percentualGordura = naoNegativoDoubleInput("Percentual de gordura corporal (%): ");
+		double massaMuscular = naoNegativoDoubleInput("Massa muscular (em kg): ");
 		String observacoes = getInput("Observações: ");
 		LocalDate dataAvaliacao = LocalDate.now();
 
@@ -135,6 +135,22 @@ public class AvaliacaoFisica {
 		System.out.println(
 				"Avaliação física registrada com sucesso para o(a) aluno(a) " + alunoParaAvaliar.getNome() + "!");
 
+	}
+	private static double naoNegativoDoubleInput(String prompt) {
+	    double valor;
+	    do {
+	        System.out.print(prompt);
+	        while (!scanner.hasNextDouble()) {
+	            System.out.println("Por favor, insira um número válido maior ou igual a zero.");
+	            System.out.print(prompt);
+	            scanner.next();
+	        }
+	        valor = scanner.nextDouble();
+	        if (valor < 0) {
+	            System.out.println("Por favor, insira um número maior ou igual a zero.");
+	        }
+	    } while (valor < 0);
+	    return valor;
 	}
 
 	public static void visualizarAvaliacoesRealizadasAluno(Aluno aluno) {
@@ -187,22 +203,4 @@ public class AvaliacaoFisica {
 		System.out.print(prompt);
 		return scanner.nextLine();
 	}
-
-	private static double getDoubleInput(String prompt) {
-		double input = 0.0;
-		boolean valid = false;
-
-		while (!valid) {
-			try {
-				System.out.print(prompt);
-				input = Double.parseDouble(scanner.nextLine());
-				valid = true;
-			} catch (NumberFormatException e) {
-				System.out.println("Por favor, insira um número válido.");
-			}
-		}
-
-		return input;
-	}
-
 }
