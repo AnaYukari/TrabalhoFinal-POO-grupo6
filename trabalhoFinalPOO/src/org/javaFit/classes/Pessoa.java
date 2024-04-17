@@ -7,12 +7,12 @@ import java.time.format.DateTimeFormatter;
 public abstract class Pessoa {
 
 	protected String nome;
-    protected String cpf;
-    protected LocalDate dataNascimento;
-    protected String contato;
-    protected String senha;
-    static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	
+	protected String cpf;
+	protected LocalDate dataNascimento;
+	protected String contato;
+	protected String senha;
+	static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
 	public Pessoa(String nome, String cpf, LocalDate dataNascimento, String contato, String senha) {
 		this.nome = nome;
 		this.cpf = cpf;
