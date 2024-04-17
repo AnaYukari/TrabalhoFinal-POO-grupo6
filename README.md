@@ -12,7 +12,7 @@ O objetivo deste projeto é simular o funcionamento de uma academia, permitindo 
   LinkedIn -https://www.linkedin.com/in/alexandre-oliveira-siveira/
   
 - **Ana Yukari Futigami Pereira**  
-  LinkedIn - https://www.linkedin.com/in/anayukari/
+  LinkedIn - https://www.linkedin.com/in/yuyuka/
 
 - **Kayque Lucas Silva Neves**  
   LinkedIn - https://www.linkedin.com/in/kayque-lucas-dev/
