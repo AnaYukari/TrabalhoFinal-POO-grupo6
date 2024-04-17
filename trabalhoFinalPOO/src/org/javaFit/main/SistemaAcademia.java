@@ -446,8 +446,7 @@ public class SistemaAcademia {
                         break;
                     case 7:
                         //Emitir relação de avaliações físicas por período
-                    	
-                    	Scanner scanner = new Scanner(System.in);
+                    	                 
                     	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                         
                         System.out.println("Digite a data inicial (no formato dd/MM/yyyy): ");
@@ -481,10 +480,8 @@ public class SistemaAcademia {
     	            			                            
 	                        } catch (IOException e) {
 	                        	System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM/yyyy.");
-							}
-                		                		
-	                    scanner.close();
-	                    
+	                        }
+             
             			break;
                     case 8:                    	
                     	sair = true;
